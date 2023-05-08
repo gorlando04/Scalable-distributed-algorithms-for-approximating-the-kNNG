@@ -74,7 +74,7 @@ The output of this test was store in a .csv file that in the future was used to 
 
 ### Sharding
 
-Sharding’s execution were incremental, so the same script was executed 12 times, each time with a dataset and algorithm (IVFFlat and IVFPQ) different, and the results were store in a .csv that in the future was analyzed. The following code was responsible for Sharding’s execution. This code is the [run.sh](https://github.com/gorlando04/Scalable-distributed-algorithms-for-approximating-the-kNNG/tree/main/benchmarking/Sharding/rub.sh) file. It is important to note that this file must be executable, and to this, just chmod +x run.sh, and then ./run.sh
+Sharding’s execution were incremental, so the same script was executed 12 times, each time with a dataset and algorithm (IVFFlat and IVFPQ) different, and the results were store in a .csv that in the future was analyzed. The following code was responsible for Sharding’s execution. This code is the [run.sh](https://github.com/gorlando04/Scalable-distributed-algorithms-for-approximating-the-kNNG/tree/main/benchmarking/Sharding/run.sh) file. It is important to note that this file must be executable, and to this, just chmod +x run.sh, and then ./run.sh
 
 ```bash
 #!/bin/bash
