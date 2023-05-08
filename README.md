@@ -10,20 +10,24 @@ The comparsion was performed in a GPU server with the following specifications
 
 <aside>
 💡 RAM: 128 GB
-Processor: 2 Intel(R) Xeon(R) Silver 4208 CPU
-GPU: 3 NVIDIA GeForce RTX 2080 Super
-Ubuntu 22.04
-CUDA 12.0
-Docker Version: 20.10.21
+	
+💡 Processor: 2 Intel(R) Xeon(R) Silver 4208 CPU
+
+💡 GPU: 3 NVIDIA GeForce RTX 2080 Super
+
+💡 Ubuntu 22.04
+
+💡 CUDA 12.0
+
+💡 Docker Version: 20.10.21
 
 </aside>
 
 To build the container, the following image was used:
 
-<aside>
-💡 docker run --gpus '"device=0,1,2"' --name RAPIDS_CONTAINER --rm -it -v /home/gabriel:/rapids -w /rapids --shm-size=1g --ulimit memlock=-1 [nvcr.io/nvidia/rapidsai/rapidsai-core:22.10-cuda11.5-base-ubuntu18.04-py3.8](http://nvcr.io/nvidia/rapidsai/rapidsai-core:22.10-cuda11.5-base-ubuntu18.04-py3.8)
-
-</aside>
+```
+docker run --gpus '"device=0,1,2"' --name RAPIDS_CONTAINER --rm -it -v /home/gabriel:/rapids -w /rapids --shm-size=1g --ulimit memlock=-1 [nvcr.io/nvidia/rapidsai/rapidsai-core:22.10-cuda11.5-base-ubuntu18.04-py3.8](http://nvcr.io/nvidia/rapidsai/rapidsai-core:22.10-cuda11.5-base-ubuntu18.04-py3.8)
+```
 
 When acessing the container, the following steps were done:
 
@@ -112,7 +116,7 @@ The data used was created during the execution and can be replicated as the skel
 
 ## Results
 
-The .csv files were used in a jupyte-notebook to create the graphics that were used on the paper, the way the figures were created and all the steps are store in results.
+The .csv files were used in a jupyte-notebook to create the graphics that were used on the paper, the way the figures were created and all the steps are store in [results](https://github.com/gorlando04/Scalable-distributed-algorithms-for-approximating-the-kNNG/tree/main/results).
 
 ## Conclusion
 
