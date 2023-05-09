@@ -759,7 +759,7 @@ metodos = {'deterministico': ['brute'],
 
 
 # Define the datasets n sample
-dbs = range(int(0),int(506e6)+1,int(1e7))
+dbs = range(int(0),int(50e6)+1,int(1e7))
 d = 12
 
 import math

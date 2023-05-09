@@ -1,0 +1,577 @@
+nprobe,Name,Method,Dim,N_sample,nList,DB Size (GB),Time kNN,Recall@10,Total,Train time,Add time,Erro,Move time
+0.0,SK-1M-12d,brute,12.0,1000000.0,0.0,0.048,9.598725080490112,-,9.598725080490112,,,,
+5.0,SK-1M-12d,ivfflat,12.0,1000000.0,4096.0,0.048,0.4300057888031006,0.3715344,3.540977001190185,1.944656610488892,1.1663146018981934,,
+10.0,SK-1M-12d,ivfflat,12.0,1000000.0,4096.0,0.048,0.6698904037475586,0.5688079,3.5350325107574463,1.8251142501831052,1.0400278568267822,,
+25.0,SK-1M-12d,ivfflat,12.0,1000000.0,4096.0,0.048,1.3305187225341797,0.8745657,4.323131084442139,1.807992935180664,1.184619426727295,,
+50.0,SK-1M-12d,ivfflat,12.0,1000000.0,4096.0,0.048,2.373800277709961,0.9817824,5.517998218536377,1.84412145614624,1.3000764846801758,,
+75.0,SK-1M-12d,ivfflat,12.0,1000000.0,4096.0,0.048,3.363997220993042,0.9953888,6.283171653747559,1.8099443912506104,1.1092300415039062,,
+100.0,SK-1M-12d,ivfflat,12.0,1000000.0,4096.0,0.048,4.385421514511108,0.9974406,7.228781223297119,1.7949392795562744,1.0484204292297363,,
+5.0,SK-1M-12d,ivfpq,12.0,1000000.0,4096.0,0.048,0.3923161029815674,0.3469769,19.245508909225464,17.7161226272583,1.1370701789855957,,
+10.0,SK-1M-12d,ivfpq,12.0,1000000.0,4096.0,0.048,0.5587539672851562,0.51005,17.54109787940979,15.819926977157593,1.162416934967041,,
+25.0,SK-1M-12d,ivfpq,12.0,1000000.0,4096.0,0.048,1.0284640789031982,0.7384081,20.10377025604248,17.625190258026123,1.4501159191131592,,
+50.0,SK-1M-12d,ivfpq,12.0,1000000.0,4096.0,0.048,1.7093894481658936,0.8137455,20.26323866844177,17.398072719573975,1.1557765007019043,,
+75.0,SK-1M-12d,ivfpq,12.0,1000000.0,4096.0,0.048,2.406827449798584,0.8235439,21.161880016326904,17.559873819351196,1.195178747177124,,
+100.0,SK-1M-12d,ivfpq,12.0,1000000.0,4096.0,0.048,3.1300010681152344,0.8250467,21.77136611938477,17.441516637802124,1.1998484134674072,,
+5.0,SK-1M-12d,ivfsq,12.0,1000000.0,4096.0,0.048,0.4012000560760498,0.3453956,5.785098552703857,4.396773815155029,0.9871246814727784,,
+10.0,SK-1M-12d,ivfsq,12.0,1000000.0,4096.0,0.048,0.6391603946685791,0.5043551,6.106836557388306,4.169739007949829,1.2979371547698977,,
+25.0,SK-1M-12d,ivfsq,12.0,1000000.0,4096.0,0.048,1.1289269924163818,0.7158006,6.418298006057739,4.2552490234375,1.0341219902038574,,
+50.0,SK-1M-12d,ivfsq,12.0,1000000.0,4096.0,0.048,1.935131788253784,0.7781788,7.262449264526367,4.096733570098877,1.230583906173706,,
+75.0,SK-1M-12d,ivfsq,12.0,1000000.0,4096.0,0.048,2.7590343952178955,0.785264,7.944685935974121,4.256060838699341,0.9295907020568848,,
+100.0,SK-1M-12d,ivfsq,12.0,1000000.0,4096.0,0.048,3.5717997550964355,0.7862609,8.746602058410645,4.207948923110962,0.9668533802032472,,
+0.0,SK-10M-12d,brute,12.0,10000000.0,0.0,0.48,881.3127360343933,-,881.3127360343933,,,,
+5.0,SK-10M-12d,ivfflat,12.0,10000000.0,16384.0,0.48,8.692131519317627,0.35890395,38.397069692611694,16.11918354034424,13.585754632949827,,
+10.0,SK-10M-12d,ivfflat,12.0,10000000.0,16384.0,0.48,14.787446022033691,0.54574378,43.6322546005249,16.107394695281982,12.737413883209229,,
+25.0,SK-10M-12d,ivfflat,12.0,10000000.0,16384.0,0.48,31.60949397087097,0.84655957,61.76047134399414,16.18301272392273,13.96796464920044,,
+50.0,SK-10M-12d,ivfflat,12.0,10000000.0,16384.0,0.48,31.60949397087097,0.84655957,61.76047134399414,16.18301272392273,13.96796464920044,"Exception thrown from index 0: Error in virtual void* faiss::gpu::StandardGpuResourcesImpl::allocMemory(const faiss::gpu::AllocRequest&) at /home/conda/feedstock_root/build_artifacts/faiss-split_1637390707745/work/faiss/gpu/StandardGpuResources.cpp:410: Error: 'err == cudaSuccess' failed: Failed to cudaMalloc 8000001600 bytes on device 0 (error 2 out of memory
+Outstanding allocations:
+Alloc type TemporaryMemoryBuffer: 1 allocations, 1073741824 bytes
+Alloc type FlatData: 2 allocations, 851968 bytes
+Alloc type IVFLists: 32768 allocations, 742294080 bytes
+Alloc type Other: 3 allocations, 960000192 bytes
+Alloc type TemporaryMemoryOverflow: 2 allocations, 1333333600 bytes
+
+Exception thrown from index 1: Error in virtual void* faiss::gpu::StandardGpuResourcesImpl::allocMemory(const faiss::gpu::AllocRequest&) at /home/conda/feedstock_root/build_artifacts/faiss-split_1637390707745/work/faiss/gpu/StandardGpuResources.cpp:410: Error: 'err == cudaSuccess' failed: Failed to cudaMalloc 8000001600 bytes on device 1 (error 2 out of memory
+Outstanding allocations:
+Alloc type TemporaryMemoryBuffer: 1 allocations, 1073741824 bytes
+Alloc type FlatData: 2 allocations, 851968 bytes
+Alloc type IVFLists: 32768 allocations, 742294080 bytes
+Alloc type Other: 3 allocations, 960000192 bytes
+Alloc type TemporaryMemoryOverflow: 2 allocations, 1333333600 bytes
+
+Exception thrown from index 2: Error in virtual void* faiss::gpu::StandardGpuResourcesImpl::allocMemory(const faiss::gpu::AllocRequest&) at /home/conda/feedstock_root/build_artifacts/faiss-split_1637390707745/work/faiss/gpu/StandardGpuResources.cpp:410: Error: 'err == cudaSuccess' failed: Failed to cudaMalloc 7999996800 bytes on device 2 (error 2 out of memory
+Outstanding allocations:
+Alloc type TemporaryMemoryBuffer: 1 allocations, 1073741824 bytes
+Alloc type FlatData: 2 allocations, 851968 bytes
+Alloc type IVFLists: 32768 allocations, 742294080 bytes
+Alloc type Other: 3 allocations, 959999616 bytes
+Alloc type TemporaryMemoryOverflow: 2 allocations, 1333332800 bytes
+
+",
+75.0,SK-10M-12d,ivfflat,12.0,10000000.0,16384.0,0.48,31.60949397087097,0.84655957,61.76047134399414,16.18301272392273,13.96796464920044,"Exception thrown from index 0: Error in virtual void* faiss::gpu::StandardGpuResourcesImpl::allocMemory(const faiss::gpu::AllocRequest&) at /home/conda/feedstock_root/build_artifacts/faiss-split_1637390707745/work/faiss/gpu/StandardGpuResources.cpp:410: Error: 'err == cudaSuccess' failed: Failed to cudaMalloc 12000002400 bytes on device 0 (error 2 out of memory
+Outstanding allocations:
+Alloc type TemporaryMemoryBuffer: 1 allocations, 1073741824 bytes
+Alloc type FlatData: 2 allocations, 851968 bytes
+Alloc type IVFLists: 32768 allocations, 742294080 bytes
+Alloc type Other: 3 allocations, 960000192 bytes
+Alloc type TemporaryMemoryOverflow: 2 allocations, 2000000416 bytes
+
+Exception thrown from index 1: Error in virtual void* faiss::gpu::StandardGpuResourcesImpl::allocMemory(const faiss::gpu::AllocRequest&) at /home/conda/feedstock_root/build_artifacts/faiss-split_1637390707745/work/faiss/gpu/StandardGpuResources.cpp:410: Error: 'err == cudaSuccess' failed: Failed to cudaMalloc 12000002400 bytes on device 1 (error 2 out of memory
+Outstanding allocations:
+Alloc type TemporaryMemoryBuffer: 1 allocations, 1073741824 bytes
+Alloc type FlatData: 2 allocations, 851968 bytes
+Alloc type TemporaryMemoryOverflow: 2 allocations, 2000000416 bytes
+Alloc type IVFLists: 32768 allocations, 742294080 bytes
+Alloc type Other: 3 allocations, 960000192 bytes
+
+Exception thrown from index 2: Error in virtual void* faiss::gpu::StandardGpuResourcesImpl::allocMemory(const faiss::gpu::AllocRequest&) at /home/conda/feedstock_root/build_artifacts/faiss-split_1637390707745/work/faiss/gpu/StandardGpuResources.cpp:410: Error: 'err == cudaSuccess' failed: Failed to cudaMalloc 11999995200 bytes on device 2 (error 2 out of memory
+Outstanding allocations:
+Alloc type TemporaryMemoryBuffer: 1 allocations, 1073741824 bytes
+Alloc type FlatData: 2 allocations, 851968 bytes
+Alloc type IVFLists: 32768 allocations, 742294080 bytes
+Alloc type Other: 3 allocations, 959999616 bytes
+Alloc type TemporaryMemoryOverflow: 2 allocations, 1999999200 bytes
+
+",
+100.0,SK-10M-12d,ivfflat,12.0,10000000.0,16384.0,0.48,31.60949397087097,0.84655957,61.76047134399414,16.18301272392273,13.96796464920044,"Exception thrown from index 0: Error in virtual void* faiss::gpu::StandardGpuResourcesImpl::allocMemory(const faiss::gpu::AllocRequest&) at /home/conda/feedstock_root/build_artifacts/faiss-split_1637390707745/work/faiss/gpu/StandardGpuResources.cpp:410: Error: 'err == cudaSuccess' failed: Failed to cudaMalloc 16000003200 bytes on device 0 (error 2 out of memory
+Outstanding allocations:
+Alloc type TemporaryMemoryBuffer: 1 allocations, 1073741824 bytes
+Alloc type FlatData: 2 allocations, 851968 bytes
+Alloc type IVFLists: 32768 allocations, 742294080 bytes
+Alloc type Other: 3 allocations, 960000192 bytes
+Alloc type TemporaryMemoryOverflow: 2 allocations, 2666667200 bytes
+
+Exception thrown from index 1: Error in virtual void* faiss::gpu::StandardGpuResourcesImpl::allocMemory(const faiss::gpu::AllocRequest&) at /home/conda/feedstock_root/build_artifacts/faiss-split_1637390707745/work/faiss/gpu/StandardGpuResources.cpp:410: Error: 'err == cudaSuccess' failed: Failed to cudaMalloc 16000003200 bytes on device 1 (error 2 out of memory
+Outstanding allocations:
+Alloc type TemporaryMemoryBuffer: 1 allocations, 1073741824 bytes
+Alloc type FlatData: 2 allocations, 851968 bytes
+Alloc type Other: 3 allocations, 960000192 bytes
+Alloc type IVFLists: 32768 allocations, 742294080 bytes
+Alloc type TemporaryMemoryOverflow: 2 allocations, 2666667200 bytes
+
+Exception thrown from index 2: Error in virtual void* faiss::gpu::StandardGpuResourcesImpl::allocMemory(const faiss::gpu::AllocRequest&) at /home/conda/feedstock_root/build_artifacts/faiss-split_1637390707745/work/faiss/gpu/StandardGpuResources.cpp:410: Error: 'err == cudaSuccess' failed: Failed to cudaMalloc 15999993600 bytes on device 2 (error 2 out of memory
+Outstanding allocations:
+Alloc type TemporaryMemoryBuffer: 1 allocations, 1073741824 bytes
+Alloc type FlatData: 2 allocations, 851968 bytes
+Alloc type Other: 3 allocations, 959999616 bytes
+Alloc type IVFLists: 32768 allocations, 742294080 bytes
+Alloc type TemporaryMemoryOverflow: 2 allocations, 2666665600 bytes
+
+",
+5.0,SK-10M-12d,ivfpq,12.0,10000000.0,16384.0,0.48,5.501286268234253,0.33369493,54.185853004455566,34.882726192474365,13.801840543746948,,
+10.0,SK-10M-12d,ivfpq,12.0,10000000.0,16384.0,0.48,8.029582977294922,0.48618809,55.30770349502564,32.802595138549805,14.475525379180908,,
+25.0,SK-10M-12d,ivfpq,12.0,10000000.0,16384.0,0.48,13.51622724533081,0.70469115,62.1604208946228,34.6543345451355,13.989859104156494,,
+50.0,SK-10M-12d,ivfpq,12.0,10000000.0,16384.0,0.48,25.24028491973877,0.78687095,72.33433198928833,33.06173753738403,14.032309532165527,,
+75.0,SK-10M-12d,ivfpq,12.0,10000000.0,16384.0,0.48,34.59871768951416,0.80048465,83.52710556983948,34.82820200920105,14.100185871124268,,
+100.0,SK-10M-12d,ivfpq,12.0,10000000.0,16384.0,0.48,51.9512403011322,0.80322408,100.50234866142272,33.141233682632446,15.40987467765808,,
+5.0,SK-10M-12d,ivfsq,12.0,10000000.0,16384.0,0.48,8.254997730255127,0.33212762,42.38806486129761,20.78182625770569,13.351240873336792,,
+10.0,SK-10M-12d,ivfsq,12.0,10000000.0,16384.0,0.48,12.963881015777588,0.48067584,47.5642192363739,20.759202003479004,13.84113621711731,,
+25.0,SK-10M-12d,ivfsq,12.0,10000000.0,16384.0,0.48,26.81344413757324,0.68604365,60.22006320953369,20.61074709892273,12.79587197303772,,
+50.0,SK-10M-12d,ivfsq,12.0,10000000.0,16384.0,0.48,26.81344413757324,0.68604365,60.22006320953369,20.61074709892273,12.79587197303772,"Exception thrown from index 0: Error in virtual void* faiss::gpu::StandardGpuResourcesImpl::allocMemory(const faiss::gpu::AllocRequest&) at /home/conda/feedstock_root/build_artifacts/faiss-split_1637390707745/work/faiss/gpu/StandardGpuResources.cpp:410: Error: 'err == cudaSuccess' failed: Failed to cudaMalloc 8000001600 bytes on device 0 (error 2 out of memory
+Outstanding allocations:
+Alloc type TemporaryMemoryBuffer: 1 allocations, 1073741824 bytes
+Alloc type FlatData: 2 allocations, 851968 bytes
+Alloc type Quantizer: 1 allocations, 96 bytes
+Alloc type IVFLists: 32768 allocations, 288922656 bytes
+Alloc type Other: 3 allocations, 960000192 bytes
+Alloc type TemporaryMemoryOverflow: 2 allocations, 1333333600 bytes
+
+Exception thrown from index 1: Error in virtual void* faiss::gpu::StandardGpuResourcesImpl::allocMemory(const faiss::gpu::AllocRequest&) at /home/conda/feedstock_root/build_artifacts/faiss-split_1637390707745/work/faiss/gpu/StandardGpuResources.cpp:410: Error: 'err == cudaSuccess' failed: Failed to cudaMalloc 8000001600 bytes on device 1 (error 2 out of memory
+Outstanding allocations:
+Alloc type TemporaryMemoryBuffer: 1 allocations, 1073741824 bytes
+Alloc type FlatData: 2 allocations, 851968 bytes
+Alloc type Quantizer: 1 allocations, 96 bytes
+Alloc type IVFLists: 32768 allocations, 288922656 bytes
+Alloc type Other: 3 allocations, 960000192 bytes
+Alloc type TemporaryMemoryOverflow: 2 allocations, 1333333600 bytes
+
+Exception thrown from index 2: Error in virtual void* faiss::gpu::StandardGpuResourcesImpl::allocMemory(const faiss::gpu::AllocRequest&) at /home/conda/feedstock_root/build_artifacts/faiss-split_1637390707745/work/faiss/gpu/StandardGpuResources.cpp:410: Error: 'err == cudaSuccess' failed: Failed to cudaMalloc 7999996800 bytes on device 2 (error 2 out of memory
+Outstanding allocations:
+Alloc type TemporaryMemoryBuffer: 1 allocations, 1073741824 bytes
+Alloc type FlatData: 2 allocations, 851968 bytes
+Alloc type Quantizer: 1 allocations, 96 bytes
+Alloc type IVFLists: 32768 allocations, 288922656 bytes
+Alloc type Other: 3 allocations, 959999616 bytes
+Alloc type TemporaryMemoryOverflow: 2 allocations, 1333332800 bytes
+
+",
+75.0,SK-10M-12d,ivfsq,12.0,10000000.0,16384.0,0.48,26.81344413757324,0.68604365,60.22006320953369,20.61074709892273,12.79587197303772,"Exception thrown from index 0: Error in virtual void* faiss::gpu::StandardGpuResourcesImpl::allocMemory(const faiss::gpu::AllocRequest&) at /home/conda/feedstock_root/build_artifacts/faiss-split_1637390707745/work/faiss/gpu/StandardGpuResources.cpp:410: Error: 'err == cudaSuccess' failed: Failed to cudaMalloc 12000002400 bytes on device 0 (error 2 out of memory
+Outstanding allocations:
+Alloc type TemporaryMemoryBuffer: 1 allocations, 1073741824 bytes
+Alloc type FlatData: 2 allocations, 851968 bytes
+Alloc type Quantizer: 1 allocations, 96 bytes
+Alloc type Other: 3 allocations, 960000192 bytes
+Alloc type IVFLists: 32768 allocations, 288922656 bytes
+Alloc type TemporaryMemoryOverflow: 2 allocations, 2000000416 bytes
+
+Exception thrown from index 1: Error in virtual void* faiss::gpu::StandardGpuResourcesImpl::allocMemory(const faiss::gpu::AllocRequest&) at /home/conda/feedstock_root/build_artifacts/faiss-split_1637390707745/work/faiss/gpu/StandardGpuResources.cpp:410: Error: 'err == cudaSuccess' failed: Failed to cudaMalloc 12000002400 bytes on device 1 (error 2 out of memory
+Outstanding allocations:
+Alloc type TemporaryMemoryBuffer: 1 allocations, 1073741824 bytes
+Alloc type FlatData: 2 allocations, 851968 bytes
+Alloc type Quantizer: 1 allocations, 96 bytes
+Alloc type IVFLists: 32768 allocations, 288922656 bytes
+Alloc type Other: 3 allocations, 960000192 bytes
+Alloc type TemporaryMemoryOverflow: 2 allocations, 2000000416 bytes
+
+Exception thrown from index 2: Error in virtual void* faiss::gpu::StandardGpuResourcesImpl::allocMemory(const faiss::gpu::AllocRequest&) at /home/conda/feedstock_root/build_artifacts/faiss-split_1637390707745/work/faiss/gpu/StandardGpuResources.cpp:410: Error: 'err == cudaSuccess' failed: Failed to cudaMalloc 11999995200 bytes on device 2 (error 2 out of memory
+Outstanding allocations:
+Alloc type TemporaryMemoryBuffer: 1 allocations, 1073741824 bytes
+Alloc type FlatData: 2 allocations, 851968 bytes
+Alloc type Quantizer: 1 allocations, 96 bytes
+Alloc type IVFLists: 32768 allocations, 288922656 bytes
+Alloc type Other: 3 allocations, 959999616 bytes
+Alloc type TemporaryMemoryOverflow: 2 allocations, 1999999200 bytes
+
+",
+100.0,SK-10M-12d,ivfsq,12.0,10000000.0,16384.0,0.48,26.81344413757324,0.68604365,60.22006320953369,20.61074709892273,12.79587197303772,"Exception thrown from index 0: Error in virtual void* faiss::gpu::StandardGpuResourcesImpl::allocMemory(const faiss::gpu::AllocRequest&) at /home/conda/feedstock_root/build_artifacts/faiss-split_1637390707745/work/faiss/gpu/StandardGpuResources.cpp:410: Error: 'err == cudaSuccess' failed: Failed to cudaMalloc 16000003200 bytes on device 0 (error 2 out of memory
+Outstanding allocations:
+Alloc type TemporaryMemoryBuffer: 1 allocations, 1073741824 bytes
+Alloc type FlatData: 2 allocations, 851968 bytes
+Alloc type Quantizer: 1 allocations, 96 bytes
+Alloc type IVFLists: 32768 allocations, 288922656 bytes
+Alloc type Other: 3 allocations, 960000192 bytes
+Alloc type TemporaryMemoryOverflow: 2 allocations, 2666667200 bytes
+
+Exception thrown from index 1: Error in virtual void* faiss::gpu::StandardGpuResourcesImpl::allocMemory(const faiss::gpu::AllocRequest&) at /home/conda/feedstock_root/build_artifacts/faiss-split_1637390707745/work/faiss/gpu/StandardGpuResources.cpp:410: Error: 'err == cudaSuccess' failed: Failed to cudaMalloc 16000003200 bytes on device 1 (error 2 out of memory
+Outstanding allocations:
+Alloc type TemporaryMemoryBuffer: 1 allocations, 1073741824 bytes
+Alloc type FlatData: 2 allocations, 851968 bytes
+Alloc type Quantizer: 1 allocations, 96 bytes
+Alloc type TemporaryMemoryOverflow: 2 allocations, 2666667200 bytes
+Alloc type IVFLists: 32768 allocations, 288922656 bytes
+Alloc type Other: 3 allocations, 960000192 bytes
+
+Exception thrown from index 2: Error in virtual void* faiss::gpu::StandardGpuResourcesImpl::allocMemory(const faiss::gpu::AllocRequest&) at /home/conda/feedstock_root/build_artifacts/faiss-split_1637390707745/work/faiss/gpu/StandardGpuResources.cpp:410: Error: 'err == cudaSuccess' failed: Failed to cudaMalloc 15999993600 bytes on device 2 (error 2 out of memory
+Outstanding allocations:
+Alloc type TemporaryMemoryBuffer: 1 allocations, 1073741824 bytes
+Alloc type FlatData: 2 allocations, 851968 bytes
+Alloc type Quantizer: 1 allocations, 96 bytes
+Alloc type TemporaryMemoryOverflow: 2 allocations, 2666665600 bytes
+Alloc type IVFLists: 32768 allocations, 288922656 bytes
+Alloc type Other: 3 allocations, 959999616 bytes
+
+",
+0.0,SK-20M-12d,brute,12.0,20000000.0,0.0,0.96,3540.154814720154,-,3540.154814720154,,,,
+5.0,SK-20M-12d,ivfflat,12.0,20000000.0,16384.0,0.96,28.708550214767456,0.390936585,65.12998747825623,16.148675680160522,20.272761583328247,,
+10.0,SK-20M-12d,ivfflat,12.0,20000000.0,16384.0,0.96,51.14328742027283,0.59458863,88.41471147537231,16.088141202926636,21.18328285217285,,
+25.0,SK-20M-12d,ivfflat,12.0,20000000.0,16384.0,0.96,118.3855607509613,0.885270835,155.07353520393372,16.113989114761353,20.57398533821106,,
+50.0,SK-20M-12d,ivfflat,12.0,20000000.0,16384.0,0.96,118.3855607509613,0.885270835,155.07353520393372,16.113989114761353,20.57398533821106,"Exception thrown from index 0: Error in virtual void* faiss::gpu::StandardGpuResourcesImpl::allocMemory(const faiss::gpu::AllocRequest&) at /home/conda/feedstock_root/build_artifacts/faiss-split_1637390707745/work/faiss/gpu/StandardGpuResources.cpp:410: Error: 'err == cudaSuccess' failed: Failed to cudaMalloc 6710884800 bytes on device 0 (error 2 out of memory
+Outstanding allocations:
+Alloc type TemporaryMemoryBuffer: 1 allocations, 1073741824 bytes
+Alloc type FlatData: 2 allocations, 851968 bytes
+Alloc type IVFLists: 32768 allocations, 1488659584 bytes
+Alloc type Other: 3 allocations, 801768752 bytes
+Alloc type TemporaryMemoryOverflow: 3 allocations, 2185147520 bytes
+
+Exception thrown from index 1: Error in virtual void* faiss::gpu::StandardGpuResourcesImpl::allocMemory(const faiss::gpu::AllocRequest&) at /home/conda/feedstock_root/build_artifacts/faiss-split_1637390707745/work/faiss/gpu/StandardGpuResources.cpp:410: Error: 'err == cudaSuccess' failed: Failed to cudaMalloc 6710884800 bytes on device 1 (error 2 out of memory
+Outstanding allocations:
+Alloc type TemporaryMemoryBuffer: 1 allocations, 1073741824 bytes
+Alloc type FlatData: 2 allocations, 851968 bytes
+Alloc type Other: 3 allocations, 801768752 bytes
+Alloc type IVFLists: 32768 allocations, 1488659584 bytes
+Alloc type TemporaryMemoryOverflow: 3 allocations, 2185147520 bytes
+
+Exception thrown from index 2: Error in virtual void* faiss::gpu::StandardGpuResourcesImpl::allocMemory(const faiss::gpu::AllocRequest&) at /home/conda/feedstock_root/build_artifacts/faiss-split_1637390707745/work/faiss/gpu/StandardGpuResources.cpp:410: Error: 'err == cudaSuccess' failed: Failed to cudaMalloc 6710884800 bytes on device 2 (error 2 out of memory
+Outstanding allocations:
+Alloc type TemporaryMemoryBuffer: 1 allocations, 1073741824 bytes
+Alloc type FlatData: 2 allocations, 851968 bytes
+Alloc type IVFLists: 32768 allocations, 1488659584 bytes
+Alloc type Other: 3 allocations, 801768672 bytes
+Alloc type TemporaryMemoryOverflow: 3 allocations, 2185147360 bytes
+
+",
+75.0,SK-20M-12d,ivfflat,12.0,20000000.0,16384.0,0.96,118.3855607509613,0.885270835,155.07353520393372,16.113989114761353,20.57398533821106,"Exception thrown from index 0: Error in virtual void* faiss::gpu::StandardGpuResourcesImpl::allocMemory(const faiss::gpu::AllocRequest&) at /home/conda/feedstock_root/build_artifacts/faiss-split_1637390707745/work/faiss/gpu/StandardGpuResources.cpp:410: Error: 'err == cudaSuccess' failed: Failed to cudaMalloc 10066327200 bytes on device 0 (error 2 out of memory
+Outstanding allocations:
+Alloc type TemporaryMemoryBuffer: 1 allocations, 1073741824 bytes
+Alloc type FlatData: 2 allocations, 851968 bytes
+Alloc type IVFLists: 32768 allocations, 1488659584 bytes
+Alloc type Other: 3 allocations, 801768752 bytes
+Alloc type TemporaryMemoryOverflow: 3 allocations, 2744387936 bytes
+
+Exception thrown from index 1: Error in virtual void* faiss::gpu::StandardGpuResourcesImpl::allocMemory(const faiss::gpu::AllocRequest&) at /home/conda/feedstock_root/build_artifacts/faiss-split_1637390707745/work/faiss/gpu/StandardGpuResources.cpp:410: Error: 'err == cudaSuccess' failed: Failed to cudaMalloc 10066327200 bytes on device 1 (error 2 out of memory
+Outstanding allocations:
+Alloc type TemporaryMemoryBuffer: 1 allocations, 1073741824 bytes
+Alloc type FlatData: 2 allocations, 851968 bytes
+Alloc type IVFLists: 32768 allocations, 1488659584 bytes
+Alloc type TemporaryMemoryOverflow: 3 allocations, 2744387936 bytes
+Alloc type Other: 3 allocations, 801768752 bytes
+
+Exception thrown from index 2: Error in virtual void* faiss::gpu::StandardGpuResourcesImpl::allocMemory(const faiss::gpu::AllocRequest&) at /home/conda/feedstock_root/build_artifacts/faiss-split_1637390707745/work/faiss/gpu/StandardGpuResources.cpp:410: Error: 'err == cudaSuccess' failed: Failed to cudaMalloc 10066327200 bytes on device 2 (error 2 out of memory
+Outstanding allocations:
+Alloc type TemporaryMemoryBuffer: 1 allocations, 1073741824 bytes
+Alloc type FlatData: 2 allocations, 851968 bytes
+Alloc type Other: 3 allocations, 801768672 bytes
+Alloc type IVFLists: 32768 allocations, 1488659584 bytes
+Alloc type TemporaryMemoryOverflow: 3 allocations, 2744387776 bytes
+
+",
+100.0,SK-20M-12d,ivfflat,12.0,20000000.0,16384.0,0.96,118.3855607509613,0.885270835,155.07353520393372,16.113989114761353,20.57398533821106,"Exception thrown from index 0: Error in virtual void* faiss::gpu::StandardGpuResourcesImpl::allocMemory(const faiss::gpu::AllocRequest&) at /home/conda/feedstock_root/build_artifacts/faiss-split_1637390707745/work/faiss/gpu/StandardGpuResources.cpp:410: Error: 'err == cudaSuccess' failed: Failed to cudaMalloc 13421769600 bytes on device 0 (error 2 out of memory
+Outstanding allocations:
+Alloc type TemporaryMemoryBuffer: 1 allocations, 1073741824 bytes
+Alloc type FlatData: 2 allocations, 851968 bytes
+Alloc type IVFLists: 32768 allocations, 1488659584 bytes
+Alloc type Other: 3 allocations, 801768752 bytes
+Alloc type TemporaryMemoryOverflow: 3 allocations, 3303628320 bytes
+
+Exception thrown from index 1: Error in virtual void* faiss::gpu::StandardGpuResourcesImpl::allocMemory(const faiss::gpu::AllocRequest&) at /home/conda/feedstock_root/build_artifacts/faiss-split_1637390707745/work/faiss/gpu/StandardGpuResources.cpp:410: Error: 'err == cudaSuccess' failed: Failed to cudaMalloc 13421769600 bytes on device 1 (error 2 out of memory
+Outstanding allocations:
+Alloc type TemporaryMemoryBuffer: 1 allocations, 1073741824 bytes
+Alloc type FlatData: 2 allocations, 851968 bytes
+Alloc type IVFLists: 32768 allocations, 1488659584 bytes
+Alloc type Other: 3 allocations, 801768752 bytes
+Alloc type TemporaryMemoryOverflow: 3 allocations, 3303628320 bytes
+
+Exception thrown from index 2: Error in virtual void* faiss::gpu::StandardGpuResourcesImpl::allocMemory(const faiss::gpu::AllocRequest&) at /home/conda/feedstock_root/build_artifacts/faiss-split_1637390707745/work/faiss/gpu/StandardGpuResources.cpp:410: Error: 'err == cudaSuccess' failed: Failed to cudaMalloc 13421769600 bytes on device 2 (error 2 out of memory
+Outstanding allocations:
+Alloc type TemporaryMemoryBuffer: 1 allocations, 1073741824 bytes
+Alloc type FlatData: 2 allocations, 851968 bytes
+Alloc type TemporaryMemoryOverflow: 3 allocations, 3303628160 bytes
+Alloc type IVFLists: 32768 allocations, 1488659584 bytes
+Alloc type Other: 3 allocations, 801768672 bytes
+
+",
+5.0,SK-20M-12d,ivfpq,12.0,20000000.0,16384.0,0.96,12.9508535861969,0.36217561,67.75637459754944,32.93312954902649,21.87239146232605,,
+10.0,SK-20M-12d,ivfpq,12.0,20000000.0,16384.0,0.96,18.3320426940918,0.522981235,75.04263925552368,33.733511447906494,22.97708511352539,,
+25.0,SK-20M-12d,ivfpq,12.0,20000000.0,16384.0,0.96,33.536640882492065,0.72249623,88.81483483314514,32.925023794174194,22.35317015647888,,
+50.0,SK-20M-12d,ivfpq,12.0,20000000.0,16384.0,0.96,59.33064723014832,0.782023735,115.47390556335448,32.25484013557434,23.88841819763184,,
+75.0,SK-20M-12d,ivfpq,12.0,20000000.0,16384.0,0.96,82.06079983711243,0.78966176,137.20516157150269,33.00885772705078,22.13550400733948,,
+100.0,SK-20M-12d,ivfpq,12.0,20000000.0,16384.0,0.96,106.69119071960448,0.79089297,160.60905933380127,32.97180485725403,20.94606375694275,,
+5.0,SK-20M-12d,ivfsq,12.0,20000000.0,16384.0,0.96,25.61299157142639,0.360332345,66.2410032749176,20.864218950271606,19.763792753219604,,
+10.0,SK-20M-12d,ivfsq,12.0,20000000.0,16384.0,0.96,44.77118897438049,0.516902785,85.30410265922546,20.8471577167511,19.685755968093872,,
+25.0,SK-20M-12d,ivfsq,12.0,20000000.0,16384.0,0.96,101.9046266078949,0.70495866,143.6015107631683,20.83610343933105,20.860780715942383,,
+50.0,SK-20M-12d,ivfsq,12.0,20000000.0,16384.0,0.96,101.9046266078949,0.70495866,143.6015107631683,20.83610343933105,20.860780715942383,"Exception thrown from index 0: Error in virtual void* faiss::gpu::StandardGpuResourcesImpl::allocMemory(const faiss::gpu::AllocRequest&) at /home/conda/feedstock_root/build_artifacts/faiss-split_1637390707745/work/faiss/gpu/StandardGpuResources.cpp:410: Error: 'err == cudaSuccess' failed: Failed to cudaMalloc 6710884800 bytes on device 0 (error 2 out of memory
+Outstanding allocations:
+Alloc type TemporaryMemoryBuffer: 1 allocations, 1073741824 bytes
+Alloc type FlatData: 2 allocations, 851968 bytes
+Alloc type Quantizer: 1 allocations, 96 bytes
+Alloc type TemporaryMemoryOverflow: 3 allocations, 2185147520 bytes
+Alloc type IVFLists: 32768 allocations, 576865728 bytes
+Alloc type Other: 3 allocations, 801768752 bytes
+
+Exception thrown from index 1: Error in virtual void* faiss::gpu::StandardGpuResourcesImpl::allocMemory(const faiss::gpu::AllocRequest&) at /home/conda/feedstock_root/build_artifacts/faiss-split_1637390707745/work/faiss/gpu/StandardGpuResources.cpp:410: Error: 'err == cudaSuccess' failed: Failed to cudaMalloc 6710884800 bytes on device 1 (error 2 out of memory
+Outstanding allocations:
+Alloc type TemporaryMemoryBuffer: 1 allocations, 1073741824 bytes
+Alloc type FlatData: 2 allocations, 851968 bytes
+Alloc type Quantizer: 1 allocations, 96 bytes
+Alloc type IVFLists: 32768 allocations, 576865728 bytes
+Alloc type TemporaryMemoryOverflow: 3 allocations, 2185147520 bytes
+Alloc type Other: 3 allocations, 801768752 bytes
+
+Exception thrown from index 2: Error in virtual void* faiss::gpu::StandardGpuResourcesImpl::allocMemory(const faiss::gpu::AllocRequest&) at /home/conda/feedstock_root/build_artifacts/faiss-split_1637390707745/work/faiss/gpu/StandardGpuResources.cpp:410: Error: 'err == cudaSuccess' failed: Failed to cudaMalloc 6710884800 bytes on device 2 (error 2 out of memory
+Outstanding allocations:
+Alloc type TemporaryMemoryBuffer: 1 allocations, 1073741824 bytes
+Alloc type FlatData: 2 allocations, 851968 bytes
+Alloc type Quantizer: 1 allocations, 96 bytes
+Alloc type IVFLists: 32768 allocations, 576865728 bytes
+Alloc type TemporaryMemoryOverflow: 3 allocations, 2185147360 bytes
+Alloc type Other: 3 allocations, 801768672 bytes
+
+",
+75.0,SK-20M-12d,ivfsq,12.0,20000000.0,16384.0,0.96,101.9046266078949,0.70495866,143.6015107631683,20.83610343933105,20.860780715942383,"Exception thrown from index 0: Error in virtual void* faiss::gpu::StandardGpuResourcesImpl::allocMemory(const faiss::gpu::AllocRequest&) at /home/conda/feedstock_root/build_artifacts/faiss-split_1637390707745/work/faiss/gpu/StandardGpuResources.cpp:410: Error: 'err == cudaSuccess' failed: Failed to cudaMalloc 10066327200 bytes on device 0 (error 2 out of memory
+Outstanding allocations:
+Alloc type TemporaryMemoryBuffer: 1 allocations, 1073741824 bytes
+Alloc type FlatData: 2 allocations, 851968 bytes
+Alloc type Quantizer: 1 allocations, 96 bytes
+Alloc type IVFLists: 32768 allocations, 576865728 bytes
+Alloc type Other: 3 allocations, 801768752 bytes
+Alloc type TemporaryMemoryOverflow: 3 allocations, 2744387936 bytes
+
+Exception thrown from index 1: Error in virtual void* faiss::gpu::StandardGpuResourcesImpl::allocMemory(const faiss::gpu::AllocRequest&) at /home/conda/feedstock_root/build_artifacts/faiss-split_1637390707745/work/faiss/gpu/StandardGpuResources.cpp:410: Error: 'err == cudaSuccess' failed: Failed to cudaMalloc 10066327200 bytes on device 1 (error 2 out of memory
+Outstanding allocations:
+Alloc type TemporaryMemoryBuffer: 1 allocations, 1073741824 bytes
+Alloc type FlatData: 2 allocations, 851968 bytes
+Alloc type Quantizer: 1 allocations, 96 bytes
+Alloc type TemporaryMemoryOverflow: 3 allocations, 2744387936 bytes
+Alloc type IVFLists: 32768 allocations, 576865728 bytes
+Alloc type Other: 3 allocations, 801768752 bytes
+
+Exception thrown from index 2: Error in virtual void* faiss::gpu::StandardGpuResourcesImpl::allocMemory(const faiss::gpu::AllocRequest&) at /home/conda/feedstock_root/build_artifacts/faiss-split_1637390707745/work/faiss/gpu/StandardGpuResources.cpp:410: Error: 'err == cudaSuccess' failed: Failed to cudaMalloc 10066327200 bytes on device 2 (error 2 out of memory
+Outstanding allocations:
+Alloc type TemporaryMemoryBuffer: 1 allocations, 1073741824 bytes
+Alloc type FlatData: 2 allocations, 851968 bytes
+Alloc type Quantizer: 1 allocations, 96 bytes
+Alloc type IVFLists: 32768 allocations, 576865728 bytes
+Alloc type Other: 3 allocations, 801768672 bytes
+Alloc type TemporaryMemoryOverflow: 3 allocations, 2744387776 bytes
+
+",
+100.0,SK-20M-12d,ivfsq,12.0,20000000.0,16384.0,0.96,101.9046266078949,0.70495866,143.6015107631683,20.83610343933105,20.860780715942383,"Exception thrown from index 0: Error in virtual void* faiss::gpu::StandardGpuResourcesImpl::allocMemory(const faiss::gpu::AllocRequest&) at /home/conda/feedstock_root/build_artifacts/faiss-split_1637390707745/work/faiss/gpu/StandardGpuResources.cpp:410: Error: 'err == cudaSuccess' failed: Failed to cudaMalloc 13421769600 bytes on device 0 (error 2 out of memory
+Outstanding allocations:
+Alloc type TemporaryMemoryBuffer: 1 allocations, 1073741824 bytes
+Alloc type FlatData: 2 allocations, 851968 bytes
+Alloc type Quantizer: 1 allocations, 96 bytes
+Alloc type IVFLists: 32768 allocations, 576865728 bytes
+Alloc type Other: 3 allocations, 801768752 bytes
+Alloc type TemporaryMemoryOverflow: 3 allocations, 3303628320 bytes
+
+Exception thrown from index 1: Error in virtual void* faiss::gpu::StandardGpuResourcesImpl::allocMemory(const faiss::gpu::AllocRequest&) at /home/conda/feedstock_root/build_artifacts/faiss-split_1637390707745/work/faiss/gpu/StandardGpuResources.cpp:410: Error: 'err == cudaSuccess' failed: Failed to cudaMalloc 13421769600 bytes on device 1 (error 2 out of memory
+Outstanding allocations:
+Alloc type TemporaryMemoryBuffer: 1 allocations, 1073741824 bytes
+Alloc type FlatData: 2 allocations, 851968 bytes
+Alloc type Quantizer: 1 allocations, 96 bytes
+Alloc type IVFLists: 32768 allocations, 576865728 bytes
+Alloc type Other: 3 allocations, 801768752 bytes
+Alloc type TemporaryMemoryOverflow: 3 allocations, 3303628320 bytes
+
+Exception thrown from index 2: Error in virtual void* faiss::gpu::StandardGpuResourcesImpl::allocMemory(const faiss::gpu::AllocRequest&) at /home/conda/feedstock_root/build_artifacts/faiss-split_1637390707745/work/faiss/gpu/StandardGpuResources.cpp:410: Error: 'err == cudaSuccess' failed: Failed to cudaMalloc 13421769600 bytes on device 2 (error 2 out of memory
+Outstanding allocations:
+Alloc type TemporaryMemoryBuffer: 1 allocations, 1073741824 bytes
+Alloc type FlatData: 2 allocations, 851968 bytes
+Alloc type Quantizer: 1 allocations, 96 bytes
+Alloc type IVFLists: 32768 allocations, 576865728 bytes
+Alloc type TemporaryMemoryOverflow: 3 allocations, 3303628160 bytes
+Alloc type Other: 3 allocations, 801768672 bytes
+
+",
+0.0,SK-30M-12d,brute,12.0,30000000.0,0.0,1.44,7976.501084566116,-,7976.501084566116,,,,
+5.0,SK-30M-12d,ivfflat,12.0,30000000.0,16384.0,1.44,87.66492795944214,0.41256834,133.23159170150757,16.2227885723114,29.34387516975403,,
+10.0,SK-30M-12d,ivfflat,12.0,30000000.0,16384.0,1.44,170.70754098892212,0.6252571133333333,215.1896965503693,16.038342714309692,28.44381284713745,,
+25.0,SK-30M-12d,ivfflat,12.0,30000000.0,16384.0,1.44,170.70754098892212,0.6252571133333333,215.1896965503693,16.038342714309692,28.44381284713745,"Exception thrown from index 0: Error in virtual void* faiss::gpu::StandardGpuResourcesImpl::allocMemory(const faiss::gpu::AllocRequest&) at /home/conda/feedstock_root/build_artifacts/faiss-split_1637390707745/work/faiss/gpu/StandardGpuResources.cpp:410: Error: 'err == cudaSuccess' failed: Failed to cudaMalloc 3355442400 bytes on device 0 (error 2 out of memory
+Outstanding allocations:
+Alloc type TemporaryMemoryBuffer: 1 allocations, 1073741824 bytes
+Alloc type FlatData: 2 allocations, 851968 bytes
+Alloc type TemporaryMemoryOverflow: 3 allocations, 2159240416 bytes
+Alloc type IVFLists: 32768 allocations, 2490269696 bytes
+Alloc type Other: 3 allocations, 1068435392 bytes
+
+Exception thrown from index 1: Error in virtual void* faiss::gpu::StandardGpuResourcesImpl::allocMemory(const faiss::gpu::AllocRequest&) at /home/conda/feedstock_root/build_artifacts/faiss-split_1637390707745/work/faiss/gpu/StandardGpuResources.cpp:410: Error: 'err == cudaSuccess' failed: Failed to cudaMalloc 3355442400 bytes on device 1 (error 2 out of memory
+Outstanding allocations:
+Alloc type TemporaryMemoryBuffer: 1 allocations, 1073741824 bytes
+Alloc type FlatData: 2 allocations, 851968 bytes
+Alloc type Other: 3 allocations, 1068435392 bytes
+Alloc type IVFLists: 32768 allocations, 2490269696 bytes
+Alloc type TemporaryMemoryOverflow: 3 allocations, 2159240416 bytes
+
+Exception thrown from index 2: Error in virtual void* faiss::gpu::StandardGpuResourcesImpl::allocMemory(const faiss::gpu::AllocRequest&) at /home/conda/feedstock_root/build_artifacts/faiss-split_1637390707745/work/faiss/gpu/StandardGpuResources.cpp:410: Error: 'err == cudaSuccess' failed: Failed to cudaMalloc 3355442400 bytes on device 2 (error 2 out of memory
+Outstanding allocations:
+Alloc type TemporaryMemoryBuffer: 1 allocations, 1073741824 bytes
+Alloc type FlatData: 2 allocations, 851968 bytes
+Alloc type IVFLists: 32768 allocations, 2490269696 bytes
+Alloc type Other: 3 allocations, 1068435392 bytes
+Alloc type TemporaryMemoryOverflow: 3 allocations, 2159240416 bytes
+
+",
+50.0,SK-30M-12d,ivfflat,12.0,30000000.0,16384.0,1.44,170.70754098892212,0.6252571133333333,215.1896965503693,16.038342714309692,28.44381284713745,"Exception thrown from index 0: Error in virtual void* faiss::gpu::StandardGpuResourcesImpl::allocMemory(const faiss::gpu::AllocRequest&) at /home/conda/feedstock_root/build_artifacts/faiss-split_1637390707745/work/faiss/gpu/StandardGpuResources.cpp:410: Error: 'err == cudaSuccess' failed: Failed to cudaMalloc 6710884800 bytes on device 0 (error 2 out of memory
+Outstanding allocations:
+Alloc type TemporaryMemoryBuffer: 1 allocations, 1073741824 bytes
+Alloc type FlatData: 2 allocations, 851968 bytes
+Alloc type Other: 3 allocations, 1068435392 bytes
+Alloc type IVFLists: 32768 allocations, 2490269696 bytes
+Alloc type TemporaryMemoryOverflow: 3 allocations, 2718480800 bytes
+
+Exception thrown from index 1: Error in virtual void* faiss::gpu::StandardGpuResourcesImpl::allocMemory(const faiss::gpu::AllocRequest&) at /home/conda/feedstock_root/build_artifacts/faiss-split_1637390707745/work/faiss/gpu/StandardGpuResources.cpp:410: Error: 'err == cudaSuccess' failed: Failed to cudaMalloc 6710884800 bytes on device 1 (error 2 out of memory
+Outstanding allocations:
+Alloc type TemporaryMemoryBuffer: 1 allocations, 1073741824 bytes
+Alloc type FlatData: 2 allocations, 851968 bytes
+Alloc type IVFLists: 32768 allocations, 2490269696 bytes
+Alloc type Other: 3 allocations, 1068435392 bytes
+Alloc type TemporaryMemoryOverflow: 3 allocations, 2718480800 bytes
+
+Exception thrown from index 2: Error in virtual void* faiss::gpu::StandardGpuResourcesImpl::allocMemory(const faiss::gpu::AllocRequest&) at /home/conda/feedstock_root/build_artifacts/faiss-split_1637390707745/work/faiss/gpu/StandardGpuResources.cpp:410: Error: 'err == cudaSuccess' failed: Failed to cudaMalloc 6710884800 bytes on device 2 (error 2 out of memory
+Outstanding allocations:
+Alloc type TemporaryMemoryBuffer: 1 allocations, 1073741824 bytes
+Alloc type FlatData: 2 allocations, 851968 bytes
+Alloc type TemporaryMemoryOverflow: 3 allocations, 2718480800 bytes
+Alloc type IVFLists: 32768 allocations, 2490269696 bytes
+Alloc type Other: 3 allocations, 1068435392 bytes
+
+",
+75.0,SK-30M-12d,ivfflat,12.0,30000000.0,16384.0,1.44,170.70754098892212,0.6252571133333333,215.1896965503693,16.038342714309692,28.44381284713745,"Exception thrown from index 0: Error in virtual void* faiss::gpu::StandardGpuResourcesImpl::allocMemory(const faiss::gpu::AllocRequest&) at /home/conda/feedstock_root/build_artifacts/faiss-split_1637390707745/work/faiss/gpu/StandardGpuResources.cpp:410: Error: 'err == cudaSuccess' failed: Failed to cudaMalloc 10066327200 bytes on device 0 (error 2 out of memory
+Outstanding allocations:
+Alloc type TemporaryMemoryBuffer: 1 allocations, 1073741824 bytes
+Alloc type FlatData: 2 allocations, 851968 bytes
+Alloc type IVFLists: 32768 allocations, 2490269696 bytes
+Alloc type Other: 3 allocations, 1068435392 bytes
+Alloc type TemporaryMemoryOverflow: 3 allocations, 3277721216 bytes
+
+Exception thrown from index 1: Error in virtual void* faiss::gpu::StandardGpuResourcesImpl::allocMemory(const faiss::gpu::AllocRequest&) at /home/conda/feedstock_root/build_artifacts/faiss-split_1637390707745/work/faiss/gpu/StandardGpuResources.cpp:410: Error: 'err == cudaSuccess' failed: Failed to cudaMalloc 10066327200 bytes on device 1 (error 2 out of memory
+Outstanding allocations:
+Alloc type TemporaryMemoryBuffer: 1 allocations, 1073741824 bytes
+Alloc type FlatData: 2 allocations, 851968 bytes
+Alloc type IVFLists: 32768 allocations, 2490269696 bytes
+Alloc type Other: 3 allocations, 1068435392 bytes
+Alloc type TemporaryMemoryOverflow: 3 allocations, 3277721216 bytes
+
+Exception thrown from index 2: Error in virtual void* faiss::gpu::StandardGpuResourcesImpl::allocMemory(const faiss::gpu::AllocRequest&) at /home/conda/feedstock_root/build_artifacts/faiss-split_1637390707745/work/faiss/gpu/StandardGpuResources.cpp:410: Error: 'err == cudaSuccess' failed: Failed to cudaMalloc 10066327200 bytes on device 2 (error 2 out of memory
+Outstanding allocations:
+Alloc type TemporaryMemoryBuffer: 1 allocations, 1073741824 bytes
+Alloc type FlatData: 2 allocations, 851968 bytes
+Alloc type IVFLists: 32768 allocations, 2490269696 bytes
+Alloc type Other: 3 allocations, 1068435392 bytes
+Alloc type TemporaryMemoryOverflow: 3 allocations, 3277721216 bytes
+
+",
+100.0,SK-30M-12d,ivfflat,12.0,30000000.0,16384.0,1.44,170.70754098892212,0.6252571133333333,215.1896965503693,16.038342714309692,28.44381284713745,"Exception thrown from index 0: Error in virtual void* faiss::gpu::StandardGpuResourcesImpl::allocMemory(const faiss::gpu::AllocRequest&) at /home/conda/feedstock_root/build_artifacts/faiss-split_1637390707745/work/faiss/gpu/StandardGpuResources.cpp:410: Error: 'err == cudaSuccess' failed: Failed to cudaMalloc 13421769600 bytes on device 0 (error 2 out of memory
+Outstanding allocations:
+Alloc type TemporaryMemoryBuffer: 1 allocations, 1073741824 bytes
+Alloc type FlatData: 2 allocations, 851968 bytes
+Alloc type IVFLists: 32768 allocations, 2490269696 bytes
+Alloc type Other: 3 allocations, 1068435392 bytes
+Alloc type TemporaryMemoryOverflow: 3 allocations, 3836961600 bytes
+
+Exception thrown from index 1: Error in virtual void* faiss::gpu::StandardGpuResourcesImpl::allocMemory(const faiss::gpu::AllocRequest&) at /home/conda/feedstock_root/build_artifacts/faiss-split_1637390707745/work/faiss/gpu/StandardGpuResources.cpp:410: Error: 'err == cudaSuccess' failed: Failed to cudaMalloc 13421769600 bytes on device 1 (error 2 out of memory
+Outstanding allocations:
+Alloc type TemporaryMemoryBuffer: 1 allocations, 1073741824 bytes
+Alloc type FlatData: 2 allocations, 851968 bytes
+Alloc type TemporaryMemoryOverflow: 3 allocations, 3836961600 bytes
+Alloc type IVFLists: 32768 allocations, 2490269696 bytes
+Alloc type Other: 3 allocations, 1068435392 bytes
+
+Exception thrown from index 2: Error in virtual void* faiss::gpu::StandardGpuResourcesImpl::allocMemory(const faiss::gpu::AllocRequest&) at /home/conda/feedstock_root/build_artifacts/faiss-split_1637390707745/work/faiss/gpu/StandardGpuResources.cpp:410: Error: 'err == cudaSuccess' failed: Failed to cudaMalloc 13421769600 bytes on device 2 (error 2 out of memory
+Outstanding allocations:
+Alloc type TemporaryMemoryBuffer: 1 allocations, 1073741824 bytes
+Alloc type FlatData: 2 allocations, 851968 bytes
+Alloc type IVFLists: 32768 allocations, 2490269696 bytes
+Alloc type Other: 3 allocations, 1068435392 bytes
+Alloc type TemporaryMemoryOverflow: 3 allocations, 3836961600 bytes
+
+",
+5.0,SK-30M-12d,ivfpq,12.0,30000000.0,16384.0,1.44,29.55732488632202,0.38038437,93.94573044776917,33.43707847595215,30.951327085494995,,
+10.0,SK-30M-12d,ivfpq,12.0,30000000.0,16384.0,1.44,66.72922134399414,0.54456146,129.03223752975464,32.42989420890808,29.873121976852417,,
+25.0,SK-30M-12d,ivfpq,12.0,30000000.0,16384.0,1.44,129.04425621032715,0.7312552933333333,192.5940010547638,33.91778779029846,29.631957054138184,,
+50.0,SK-30M-12d,ivfpq,12.0,30000000.0,16384.0,1.44,227.03255486488345,0.7796519533333334,290.1682782173157,33.51653814315796,29.61918520927429,,
+75.0,SK-30M-12d,ivfpq,12.0,30000000.0,16384.0,1.44,319.25393080711365,0.78495719,379.2694833278656,30.61447834968567,29.401074171066284,,
+100.0,SK-30M-12d,ivfpq,12.0,30000000.0,16384.0,1.44,411.5157842636109,0.7857023333333333,473.073783159256,32.677857398986816,28.880141496658325,,
+5.0,SK-30M-12d,ivfsq,12.0,30000000.0,16384.0,1.44,88.7719316482544,0.37689950666666666,136.6831078529358,20.944536685943604,26.966639518737797,,
+10.0,SK-30M-12d,ivfsq,12.0,30000000.0,16384.0,1.44,180.9111671447754,0.5343778433333334,230.0784866809845,20.75026297569275,28.41705656051636,,
+25.0,SK-30M-12d,ivfsq,12.0,30000000.0,16384.0,1.44,347.87577271461487,0.7065411133333334,394.6449241638184,20.90153670310974,25.86761474609375,,
+50.0,SK-30M-12d,ivfsq,12.0,30000000.0,16384.0,1.44,347.87577271461487,0.7065411133333334,394.6449241638184,20.90153670310974,25.86761474609375,"Exception thrown from index 0: Error in virtual void* faiss::gpu::StandardGpuResourcesImpl::allocMemory(const faiss::gpu::AllocRequest&) at /home/conda/feedstock_root/build_artifacts/faiss-split_1637390707745/work/faiss/gpu/StandardGpuResources.cpp:410: Error: 'err == cudaSuccess' failed: Failed to cudaMalloc 6710884800 bytes on device 0 (error 2 out of memory
+Outstanding allocations:
+Alloc type TemporaryMemoryBuffer: 1 allocations, 1073741824 bytes
+Alloc type FlatData: 2 allocations, 851968 bytes
+Alloc type Quantizer: 1 allocations, 96 bytes
+Alloc type IVFLists: 32768 allocations, 860198784 bytes
+Alloc type Other: 3 allocations, 1068435392 bytes
+Alloc type TemporaryMemoryOverflow: 3 allocations, 2718480800 bytes
+
+Exception thrown from index 1: Error in virtual void* faiss::gpu::StandardGpuResourcesImpl::allocMemory(const faiss::gpu::AllocRequest&) at /home/conda/feedstock_root/build_artifacts/faiss-split_1637390707745/work/faiss/gpu/StandardGpuResources.cpp:410: Error: 'err == cudaSuccess' failed: Failed to cudaMalloc 6710884800 bytes on device 1 (error 2 out of memory
+Outstanding allocations:
+Alloc type TemporaryMemoryBuffer: 1 allocations, 1073741824 bytes
+Alloc type FlatData: 2 allocations, 851968 bytes
+Alloc type Quantizer: 1 allocations, 96 bytes
+Alloc type TemporaryMemoryOverflow: 3 allocations, 2718480800 bytes
+Alloc type IVFLists: 32768 allocations, 860198784 bytes
+Alloc type Other: 3 allocations, 1068435392 bytes
+
+Exception thrown from index 2: Error in virtual void* faiss::gpu::StandardGpuResourcesImpl::allocMemory(const faiss::gpu::AllocRequest&) at /home/conda/feedstock_root/build_artifacts/faiss-split_1637390707745/work/faiss/gpu/StandardGpuResources.cpp:410: Error: 'err == cudaSuccess' failed: Failed to cudaMalloc 6710884800 bytes on device 2 (error 2 out of memory
+Outstanding allocations:
+Alloc type TemporaryMemoryBuffer: 1 allocations, 1073741824 bytes
+Alloc type FlatData: 2 allocations, 851968 bytes
+Alloc type Quantizer: 1 allocations, 96 bytes
+Alloc type IVFLists: 32768 allocations, 860198784 bytes
+Alloc type Other: 3 allocations, 1068435392 bytes
+Alloc type TemporaryMemoryOverflow: 3 allocations, 2718480800 bytes
+
+",
+75.0,SK-30M-12d,ivfsq,12.0,30000000.0,16384.0,1.44,347.87577271461487,0.7065411133333334,394.6449241638184,20.90153670310974,25.86761474609375,"Exception thrown from index 0: Error in virtual void* faiss::gpu::StandardGpuResourcesImpl::allocMemory(const faiss::gpu::AllocRequest&) at /home/conda/feedstock_root/build_artifacts/faiss-split_1637390707745/work/faiss/gpu/StandardGpuResources.cpp:410: Error: 'err == cudaSuccess' failed: Failed to cudaMalloc 10066327200 bytes on device 0 (error 2 out of memory
+Outstanding allocations:
+Alloc type TemporaryMemoryBuffer: 1 allocations, 1073741824 bytes
+Alloc type FlatData: 2 allocations, 851968 bytes
+Alloc type Quantizer: 1 allocations, 96 bytes
+Alloc type TemporaryMemoryOverflow: 3 allocations, 3277721216 bytes
+Alloc type Other: 3 allocations, 1068435392 bytes
+Alloc type IVFLists: 32768 allocations, 860198784 bytes
+
+Exception thrown from index 1: Error in virtual void* faiss::gpu::StandardGpuResourcesImpl::allocMemory(const faiss::gpu::AllocRequest&) at /home/conda/feedstock_root/build_artifacts/faiss-split_1637390707745/work/faiss/gpu/StandardGpuResources.cpp:410: Error: 'err == cudaSuccess' failed: Failed to cudaMalloc 10066327200 bytes on device 1 (error 2 out of memory
+Outstanding allocations:
+Alloc type TemporaryMemoryBuffer: 1 allocations, 1073741824 bytes
+Alloc type FlatData: 2 allocations, 851968 bytes
+Alloc type Quantizer: 1 allocations, 96 bytes
+Alloc type IVFLists: 32768 allocations, 860198784 bytes
+Alloc type Other: 3 allocations, 1068435392 bytes
+Alloc type TemporaryMemoryOverflow: 3 allocations, 3277721216 bytes
+
+Exception thrown from index 2: Error in virtual void* faiss::gpu::StandardGpuResourcesImpl::allocMemory(const faiss::gpu::AllocRequest&) at /home/conda/feedstock_root/build_artifacts/faiss-split_1637390707745/work/faiss/gpu/StandardGpuResources.cpp:410: Error: 'err == cudaSuccess' failed: Failed to cudaMalloc 10066327200 bytes on device 2 (error 2 out of memory
+Outstanding allocations:
+Alloc type TemporaryMemoryBuffer: 1 allocations, 1073741824 bytes
+Alloc type FlatData: 2 allocations, 851968 bytes
+Alloc type Quantizer: 1 allocations, 96 bytes
+Alloc type IVFLists: 32768 allocations, 860198784 bytes
+Alloc type TemporaryMemoryOverflow: 3 allocations, 3277721216 bytes
+Alloc type Other: 3 allocations, 1068435392 bytes
+
+",
+100.0,SK-30M-12d,ivfsq,12.0,30000000.0,16384.0,1.44,347.87577271461487,0.7065411133333334,394.6449241638184,20.90153670310974,25.86761474609375,"Exception thrown from index 0: Error in virtual void* faiss::gpu::StandardGpuResourcesImpl::allocMemory(const faiss::gpu::AllocRequest&) at /home/conda/feedstock_root/build_artifacts/faiss-split_1637390707745/work/faiss/gpu/StandardGpuResources.cpp:410: Error: 'err == cudaSuccess' failed: Failed to cudaMalloc 13421769600 bytes on device 0 (error 2 out of memory
+Outstanding allocations:
+Alloc type TemporaryMemoryBuffer: 1 allocations, 1073741824 bytes
+Alloc type FlatData: 2 allocations, 851968 bytes
+Alloc type Quantizer: 1 allocations, 96 bytes
+Alloc type IVFLists: 32768 allocations, 860198784 bytes
+Alloc type Other: 3 allocations, 1068435392 bytes
+Alloc type TemporaryMemoryOverflow: 3 allocations, 3836961600 bytes
+
+Exception thrown from index 1: Error in virtual void* faiss::gpu::StandardGpuResourcesImpl::allocMemory(const faiss::gpu::AllocRequest&) at /home/conda/feedstock_root/build_artifacts/faiss-split_1637390707745/work/faiss/gpu/StandardGpuResources.cpp:410: Error: 'err == cudaSuccess' failed: Failed to cudaMalloc 13421769600 bytes on device 1 (error 2 out of memory
+Outstanding allocations:
+Alloc type TemporaryMemoryBuffer: 1 allocations, 1073741824 bytes
+Alloc type FlatData: 2 allocations, 851968 bytes
+Alloc type Quantizer: 1 allocations, 96 bytes
+Alloc type IVFLists: 32768 allocations, 860198784 bytes
+Alloc type Other: 3 allocations, 1068435392 bytes
+Alloc type TemporaryMemoryOverflow: 3 allocations, 3836961600 bytes
+
+Exception thrown from index 2: Error in virtual void* faiss::gpu::StandardGpuResourcesImpl::allocMemory(const faiss::gpu::AllocRequest&) at /home/conda/feedstock_root/build_artifacts/faiss-split_1637390707745/work/faiss/gpu/StandardGpuResources.cpp:410: Error: 'err == cudaSuccess' failed: Failed to cudaMalloc 13421769600 bytes on device 2 (error 2 out of memory
+Outstanding allocations:
+Alloc type TemporaryMemoryBuffer: 1 allocations, 1073741824 bytes
+Alloc type FlatData: 2 allocations, 851968 bytes
+Alloc type Quantizer: 1 allocations, 96 bytes
+Alloc type IVFLists: 32768 allocations, 860198784 bytes
+Alloc type Other: 3 allocations, 1068435392 bytes
+Alloc type TemporaryMemoryOverflow: 3 allocations, 3836961600 bytes
+
+",
+0.0,SK-40M-12d,brute,12.0,40000000.0,0.0,1.92,20888.665,-,20888.665,0.0,0.0,,0.0
+5.0,SK-40M-12d,ivfflat,12.0,40000000.0,65536.0,1.92,51.459,0.3297,411.333,0.0,0.0,,0.0
+5.0,SK-40M-12d,ivfpq,12.0,40000000.0,65536.0,1.92,40.492,0.306,427.827,0.0,0.0,,0.0
+10.0,SK-40M-12d,ivfpq,12.0,40000000.0,65536.0,1.92,69.742,0.4405,456.51,0.0,0.0,,0.0
+25.0,SK-40M-12d,ivfpq,12.0,40000000.0,65536.0,1.92,149.88,0.6496,538.86,0.0,0.0,,0.0
+50.0,SK-40M-12d,ivfpq,12.0,40000000.0,65536.0,1.92,262.76,0.7469,649.452,0.0,0.0,,0.0
+75.0,SK-40M-12d,ivfpq,12.0,40000000.0,65536.0,1.92,357.47,0.7689,745.733,0.0,0.0,,0.0
+100.0,SK-40M-12d,ivfpq,12.0,40000000.0,65536.0,1.92,457.32,0.775,846.285,0.0,0.0,,0.0
+5.0,SK-40M-12d,ivfsq,12.0,40000000.0,65536.0,1.92,52.293,0.3068,423.932,0.0,0.0,,0.0
+10.0,SK-40M-12d,ivfsq,12.0,40000000.0,65536.0,1.92,77.3,0.44264,449.431,0.0,0.0,,0.0
+0.0,SK-50M-12d,brute,12.0,50000000.0,0.0,2.4,32399.740,-,32399.74,0.0,0.0,,0.0
+5.0,SK-50M-12d,ivfpq,12.0,50000000.0,65536.0,2.4,50.65,0.3143,461.232,0.0,0.0,,0.0
+10.0,SK-50M-12d,ivfpq,12.0,50000000.0,65536.0,2.4,64.911,0.451,477.091,0.0,0.0,,0.0
+25.0,SK-50M-12d,ivfpq,12.0,50000000.0,65536.0,2.4,96.271,0.655,506.902,0.0,0.0,,0.0
+50.0,SK-50M-12d,ivfpq,12.0,50000000.0,65536.0,2.4,148.59,0.744,564.148,0.0,0.0,,0.0
+5.0,SK-50M-12d,ivfsq,12.0,50000000.0,65536.0,2.4,72.666,0.3149,468.488,0.0,0.0,,0.0
+10.0,SK-50M-12d,ivfsq,12,50000000.0,65536.0,2.4,107.52,0.452,501.734,0.0,0.0,,0.0
