@@ -12,7 +12,7 @@ repeat(){
         do 
          for j in 'ivfpq'
          	do
-         	python3 bench.py -ngpu 3 -nprobe 5,10,25,50,75,100 -ivf $j -N $N
+         	python3 big_sharding.py -ngpu 3 -nprobe 5,10,25,50,75,100 -ivf $j -N $N
          	sleep 2; 
          	done
          N=`expr $N + $step`
