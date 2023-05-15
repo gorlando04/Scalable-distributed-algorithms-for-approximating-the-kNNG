@@ -816,7 +816,7 @@ class ShardingANN(ShardedMultiGPUIndex):
 
         ## Set nprobe to the index
         ps.set_index_parameter(self.index, 'nprobe', self.nprobe)
-
+        print(self.nprobe)
         ## Initiate the timer
         t0 = time.time()
 
@@ -1022,49 +1022,52 @@ def main():
 
                 ## Info declaration
 
-
-                ## Primary iteration
-                for nprobe in nprobes:
                     
-                    info = {}
+                info = {}
 
-                    info['gpu_res'] = gpu_resources
-
-                    ## Writing control variable
-                    indice += 1
-
-                    ## Set the information about the methdo, if the brute method is performed nlist and nprobe will not be used
+                info['gpu_res'] = gpu_resources
 
 
-                    n_sample,dim = (n,d)
 
-                    info['Name'] = name
-                    info['Method'] = method
-                    info['Dim'] = dim
-                    info['N_sample'] = n_sample
+                ## Set the information about the methdo, if the brute method is performed nlist and nprobe will not be used
+
+
+                n_sample,dim = (n,d)
+
+                info['Name'] = name
+                info['Method'] = method
+                info['Dim'] = dim
+                info['N_sample'] = n_sample
+                
+                info['gpu_res'] = gpu_resources
+
+                info['nList'] = nlist
+                info['nprobe'] = 0
+                info['DB Size (GB)'] = size
+                info['data'] = data
+
+                NPROBE = 5
+
+                try:
+
+                    ## Create the object by the name 
+                    index = create_object(method,info)
+
+                    if method != 'brute':
+                        index.get_populated_index()
+                        info['Train time'] = index.train_time
+                        info['Add time'] = index.add_time
+                        info['Move time'] = index.aux_time
+                        info['Total'] = info['Train time'] + info['Add time'] + info['Move time']
                     
-                    info['gpu_res'] = gpu_resources
+                                    ## Primary iteration
+                    for nprobe in nprobes:
 
-                    info['nList'] = nlist
-                    info['nprobe'] = nprobe
-                    info['DB Size (GB)'] = size
-                    info['data'] = data
-
-
-
-                    try:
-
-                        ## Create the object by the name 
-                        index = create_object(method,info)
-
-                        if method != 'brute':
-                            index.get_populated_index()
-                            info['Train time'] = index.train_time
-                            info['Add time'] = index.add_time
-                            info['Move time'] = index.aux_time
-                            info['Total'] = info['Train time'] + info['Add time'] + info['Move time']
-                        
                         ## Perform the search, saving the indices and the kNN time
+                        info['nprobe'] = nprobe
+                        index.nprobe = nprobe
+                        NPROBE = nprobe
+                        print("Begining search")
                         indices,time_knn = index.search(K)
                 
                         rec_value = '-'
@@ -1090,26 +1093,31 @@ def main():
 
                         write_df(df_gpu,indice,info)
 
+
                         #Show the informations to check how the test is going and in what stage the test is on
                         print(f"Iteration -> {indice} DB -> {name} Dim -> {dim} N -> {n_sample} Finished in {time_knn:.5} secs, method -> {method}, recall -> {rec_value}, nlist -> {nlist} nprobe -> {nprobe} TOTAL ->{info['Total']:.3}")            
-                        
-                        del index,indices
-                    except Exception as e:
-                        
-                        s = f'Recall@{rec_k}'
-                        info = {'Time kNN':'-',s:'-','nList':nlist,'nprobe':nprobe}
-                        info['Name'] = name
-                        info['Method'] = method
-                        info['Dim'] = dim
-                        info['N_sample'] = n_sample
-                        info['DB Size (GB)'] = size
-                        info['Erro'] = str(e)
+                        info['Total'] -= time_knn
+                        ## Writing control variable
+                        indice += 1
+                        del indices
 
-                        write_df(df_gpu,indice,info)
+                    del index
+                except Exception as e:
+                    
+                    s = f'Recall@{rec_k}'
+                    info = {'Time kNN':'-',s:'-','nList':nlist,'nprobe':NPROBE}
+                    info['Name'] = name
+                    info['Method'] = method
+                    info['Dim'] = dim
+                    info['N_sample'] = n_sample
+                    info['DB Size (GB)'] = size
+                    info['Erro'] = str(e)
 
-                        #Show the informations to check how the test is going and in what stage the test is on
-                        print(f"Iteration -> {indice} DB -> {name} Dim -> {dim} N -> {n_sample} Cancelled , method -> {method}, recall -> -, nlist -> {nlist} nprobe -> {nprobe}") 
-                        time.sleep(2)
+                    write_df(df_gpu,indice,info)
+
+                    #Show the informations to check how the test is going and in what stage the test is on
+                    print(f"Iteration -> {indice} DB -> {name} Dim -> {dim} N -> {n_sample} Cancelled , method -> {method}, recall -> -, nlist -> {nlist} nprobe -> {NPROBE}") 
+                    time.sleep(2)
                 del gpu_resources
         del brute_indices
     ## Write DataFrame 
