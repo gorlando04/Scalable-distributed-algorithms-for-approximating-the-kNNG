@@ -64,6 +64,11 @@ python3 create.py N_SAMPLE
 The result were checked after the end of the algorithms run.
 
 
+## Reference
+
+The repository that was used as an inspirations to this research is [GPU_KNNG](https://github.com/RayWang96/GPU_KNNG)
+
+
 
 
 
