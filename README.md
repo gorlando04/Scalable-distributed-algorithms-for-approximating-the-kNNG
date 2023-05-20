@@ -109,4 +109,8 @@ and need to be done in different containers due to different software requiremen
 
 ## Conclusion
 
-EM DESENVOLVIMENTO
+The study presented in this paper fulfilled the goals that were proposed. First of all, several approximate kNNG algorithms were introduced and studied, and their benefits and drawbacks were understood to help select the algorithms that would be tested. 
+
+Thus, we could check the approximate kNNG method's scalability to understand their performance with large datasets. As a result, IVFPQ constructs the approximate kNNG quickly and with decent quality, being over 0.75 of Recall@10 in most cases. Additionally, IVFPQ  had a low GPU memory usage, suggesting that datasets could be even larger. Therefore, IVFPQ has proved to be an excellent approximate method due to its scalable behavior, which allows it to construct the approximate kNNG for enormous datasets. Ally, regarding approximate kNNG quality, NNDescent, and IVFFLat had the best performance, achieving almost the perfect result, even though both these methods have a memory overhead, consuming a high amount of GPU memory. Divergently, IVFSQ had a poor performance in both aspects, approximate kNNG quality and scalable behavior, suggesting that it is ineffective in constructing the approximate kNNG for large datasets. 
+
+In conclusion, IVFPQ has shown the best performance in terms of scalability, without losing the approximate kNNG quality, as it manages to handle large datasets with low GPU memory usage and, therefore, could be used to speed up some machine learning techniques like HDBSCAN.
