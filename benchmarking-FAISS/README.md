@@ -51,6 +51,7 @@ repeat(){
     echo exit
 ```
 
+Additionally, we present a large_sharding benchmarking in [run_large.sh](https://github.com/gorlando04/Scalable-distributed-algorithms-for-approximating-the-kNNG/tree/main/benchmarking-FAISS/Sharding/run_large.sh) which construct the kNNG for larger datasets.
 ## Data
 
 The data used was created during the execution and can be replicated as the skelarn’s methods have a seed.
