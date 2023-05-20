@@ -61,7 +61,11 @@ python3 create.py N_SAMPLE
 ```
 ## Results
 
-The result were checked after the end of the algorithms run.
+The result were checked after the end of the algorithms run. To check the Recall@10 of the kNNG it was necessary to run [brute.py](https://github.com/gorlando04/Scalable-distributed-algorithms-for-approximating-the-kNNG/blob/main/benchmarking-NNDescent/brute/brute.py), however this script must be run on FAISS-container as it uses FAISS-BF method. To run this script the following command needs to be done:
+
+```
+python3 brute.py N_SAMPLE
+```
 
 
 ## Reference
