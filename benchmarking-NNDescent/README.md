@@ -1,17 +1,69 @@
-# GPU_KNNG
+# NNDescent
 
-Source code for CIKM 2021 paper [Fast k-NN Graph Construction by GPU based NN-Descent](https://dl.acm.org/doi/10.1145/3459637.3482344).
+This repository presents a modification on the Source code for CIKM 2021 paper [Fast k-NN Graph Construction by GPU based NN-Descent](https://dl.acm.org/doi/10.1145/3459637.3482344). Implementing NNDescent on multi-GPU, but using the Merge algorithm presented on [Fast k-NN Graph Construction by GPU based NN-Descent](https://dl.acm.org/doi/10.1145/3459637.3482344).
 
-TestCUDANNDescent() in main.cu shows a simple demo for constructing k-NN graph.
+## Observations
 
-We are working on a more formal and optimized version which contains searching on the GPU (https://arxiv.org/abs/2204.00824), so this library is no longer being updated.
+Firstly, it is important to say that in order to compile correctly the source code it is important to follow this instructions:
 
-In this version of the code, in order to improve efficiency, we fixed the following parameters in [nndescent.cuh](https://github.com/RayWang96/GPU_KNNG/blob/main/gpuknn/nndescent.cuh).
-```cpp
-const int VEC_DIM = 128;
-const int NEIGHB_NUM_PER_LIST = 64;
-const int SAMPLE_NUM = 32; 
-const int NND_ITERATION = 6;
+1. Check GPU compute capability in [NVIDIA](https://developer.nvidia.com/cuda-gpus). After that, it is important to change the value for the correct compute capability in [CMakeLists.txt](https://github.com/gorlando04/Scalable-distributed-algorithms-for-approximating-the-kNNG/blob/main/benchmarking-NNDescent/CMakeLists.txt). In the CMake file, the following value must be changed to the correct compute capability:
+
+```
+set(CMAKE_CUDA_FLAGS "${CMAKE_CUDA_FLAGS} -D_FILE_OFFSET_BITS=64 -O3 -std=c++14 -arch=sm_(COMPUTE_CAPABILITY) -rdc=true -Xcompiler -fopenmp -pthread")
 ```
 
-Above four parameters are main parameters for GNND to construct k-NN graph, they should be modified before compilation.
+2. After that the following commands must be done:
+
+```
+cd cmake
+cmake ..
+make
+```
+
+3. Finally, the executable file will be avaiable.
+
+
+## Parameters
+
+It is important to say that in [nndescent.cuh](https://github.com/gorlando04/Scalable-distributed-algorithms-for-approximating-the-kNNG/blob/main/benchmarking-NNDescent/gpuknn/nndescent.cuh) the primary parameters of the algorithm are set. This is done in the first lines.
+
+```cpp
+const int VEC_DIM = 12; // Vectors dimension
+const int NEIGHB_NUM_PER_LIST = 32; //Value of K in kNN
+const int SAMPLE_NUM = 16;  // assert(SAMPLE_NUM * 2 <= NEIGHB_NUM_PER_LIST);
+const int NND_ITERATION = 6; // Iterations of the algorithm
+const int MERGE_SAMPLE_NUM = 12;
+const int MERGE_ITERATION = 11;
+```
+
+Also, in [main.cu](https://github.com/gorlando04/Scalable-distributed-algorithms-for-approximating-the-kNNG/blob/main/benchmarking-NNDescent/main.cu) we have some parameters that must be change ir order to run the algorithm correctly. The first one is on the beggining of the source code
+
+```cpp
+#define N_SAMPLE 1000000
+
+```
+
+Which indicates the size of the dataset that will be used. Additionally, the following parameters must be changed:
+
+```cpp
+    string base_path = "/nndescent/GPU_KNNG/data/artificial/SK-1M_data.txt";
+
+```
+
+Indicating the dataset that will be used on the experiment.
+
+## Data
+
+Data can be created by two ways: by running [push.sh](https://github.com/gorlando04/Scalable-distributed-algorithms-for-approximating-the-kNNG/blob/main/benchmarking-NNDescent/data/push.sh) or by running [create.py](https://github.com/gorlando04/Scalable-distributed-algorithms-for-approximating-the-kNNG/blob/main/benchmarking-NNDescent/data/artificial/create.py) using the following command:
+
+```
+python3 create.py N_SAMPLE
+```
+## Results
+
+The result were checked after the end of the algorithms run.
+
+
+
+
+
