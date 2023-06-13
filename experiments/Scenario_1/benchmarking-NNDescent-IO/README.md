@@ -40,7 +40,7 @@ const int MERGE_ITERATION = 11;
 
 We created a bash script [run.sh](https://github.com/gorlando04/Scalable-distributed-algorithms-for-approximating-the-kNNG/blob/main/experiments/Scenario_2/benchmarking-NNDescentIO/cmake/run.sh) to run the experiments and avoiding disk overflow. So, we only need to create all the exact kNNG for all the datasets. This can be done running [run.sh](https://github.com/gorlando04/Scalable-distributed-algorithms-for-approximating-the-kNNG/blob/main/experiments/Scenario_2/benchmarking-NNDescentIO/brute/run.sh) in the FAISS container, because it uses different software specifications. So, after building the exact kNNG for all the datasets we can simply run [run.sh](https://github.com/gorlando04/Scalable-distributed-algorithms-for-approximating-the-kNNG/blob/main/experiments/Scenario_2/benchmarking-NNDescentIO/cmake/run.sh).
 
-The script pesented in [cmake](https://github.com/gorlando04/Scalable-distributed-algorithms-for-approximating-the-kNNG/tree/main/experiments/Scenario_2/benchmarking-NNDescentIO/cmake) builds the datasets, transform the dataset for being avaible to be process and evaluate the results in both sides (Begin and Final), and store the results in a folder called Test$i, where i goes from 0 to 6.
+The script pesented in [cmake](https://github.com/gorlando04/Scalable-distributed-algorithms-for-approximating-the-kNNG/tree/main/experiments/Scenario_2/benchmarking-NNDescentIO/cmake) builds the datasets, transform the dataset for being avaible to be process and evaluate the results, and store the results in a folder called Test$i, where i goes from 0 to 6.
 
 It is important that we have enough space on disk to build the kNNG, else the script is not going to work.
 
