@@ -1,0 +1,9 @@
+(10000, 32)
+(10000, 20)
+Antes de tudo vamos verificar:
+0
+0
+Recall@5 = 0.95206
+Recall@10 = 0.91078
+Recall@15 = 0.8714933333333333
+Recall@20 = 0.833075

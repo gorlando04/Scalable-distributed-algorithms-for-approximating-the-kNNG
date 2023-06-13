@@ -1,0 +1,1 @@
+This folder only exists for stroing the resulting graph.

@@ -1,0 +1,689 @@
+PREPARE SET TO false.
+SHARDS SET TO 24.
+Data path: /nndescent/GPU_KNNG/data/vectors
+Total vecs num: 150000000
+Shards num: 24
+Max vecs num. per shard: 10000000
+Vecs num. per shard: 6250000
+Vecs num. of last shard: 6250000
+There is no active ID.
+-> 150000000
+Na hora de criar o grafo: NUM: 150000000 e DIM = 32
+SIZET = 39600000000
+Na hora de criar o grafo: NUM: 150000000 e DIM = 32
+SIZET = 39600000000
+Iniciou?Building No. 1
+Building No. 0
+Building No. 2
+End building No.2 in 21.5503 seconds
+End building No.0 in 21.5948 seconds
+End building No.1 in 21.6215 seconds
+Building No. 5
+Building No. 3
+Building No. 4
+End building No.5 in 21.6144 seconds
+End building No.3 in 21.7152 seconds
+End building No.4 in 21.7777 seconds
+Building No. 6
+Building No. 8
+Building No. 7
+End building No.8 in 21.8206 seconds
+End building No.6 in 21.9595 seconds
+End building No.7 in 21.9985 seconds
+Building No. 9
+Building No. 10
+Building No. 11
+End building No.9 in 21.8302 seconds
+End building No.10 in 21.9808 seconds
+End building No.11 in 22.0925 seconds
+Building No. 12
+Building No. 13
+Building No. 14
+End building No.14 in 21.947 seconds
+End building No.13 in 22.0604 seconds
+End building No.12 in 22.0667 seconds
+Building No. 15
+Building No. 17
+Building No. 16
+End building No.17 in 21.917 seconds
+End building No.16 in 22.0765 seconds
+End building No.15 in 22.1039 seconds
+Building No. 18
+Building No. 19
+Building No. 20
+End building No.20 in 21.9784 seconds
+End building No.19 in 22.1315 seconds
+End building No.18 in 22.2152 seconds
+Building No. 22
+Building No. 23
+Building No. 21
+End building No.23 in 21.9831 seconds
+End building No.22 in 22.1052 seconds
+End building No.21 in 22.2106 seconds
+
+Iniciando o merge
+Shard 0 foi ativado e ira comecar
+END para 0 -> 140689799071824 
+
+Merge costs: J = 1 I = 0 31.2376
+Write KNN graph costs: 1.18558
+Merge costs: J = 2 I = 0 29.419
+Write KNN graph costs: 1.00168
+Shard 1 foi ativado e ira comecar
+END para 1 -> 140690520488016 
+
+Merge costs: J = 3 I = 0 29.0746
+Write KNN graph costs: 1.04457
+Merge costs: J = 2 I = 1 30.6304
+Write KNN graph costs: 1.01331
+Merge costs: J = 4 I = 0 29.6204
+Merge costs: J = 3 I = 1 28.9995
+Write KNN graph costs: 1.06011
+Write KNN graph costs: 0.979202
+Shard 2 foi ativado e ira comecar
+END para 2 -> 140690528880720 
+
+Merge costs: J = 5 I = 0 29.6495
+Write KNN graph costs: 1.15724
+Merge costs: J = 4 I = 1 30.3071
+Write KNN graph costs: 1.05346
+Merge costs: J = 3 I = 2 30.8436
+Write KNN graph costs: 1.0192
+Merge costs: J = 6 I = 0 29.9557
+Merge costs: J = 5 I = 1 29.5111
+Write KNN graph costs: 1.14085
+Merge costs: J = 4 I = 2 28.9525
+Write KNN graph costs: 1.14473
+Write KNN graph costs: 1.04182
+Merge costs: J = 7 I = 0 29.2803
+Merge costs: J = 6 I = 1 29.3032
+Write KNN graph costs: 1.46152
+Merge costs: J = 5 I = 2 29.1116
+Write KNN graph costs: 1.15299
+Write KNN graph costs: 1.08231
+Merge costs: J = 8 I = 0 30.5169
+Merge costs: J = 7 I = 1 29.0323
+Merge costs: J = 6 I = 2 29.0823
+Write KNN graph costs: 1.24844
+Write KNN graph costs: 1.50454
+Write KNN graph costs: 1.15478
+Merge costs: J = 9 I = 0 30.9683
+Merge costs: J = 8 I = 1 31.2994
+Merge costs: J = 7 I = 2 29.0058
+Write KNN graph costs: 1.44487
+Write KNN graph costs: 1.32473
+Write KNN graph costs: 1.1952
+Merge costs: J = 10 I = 0 30.5752
+Merge costs: J = 9 I = 1 30.71
+Merge costs: J = 8 I = 2 28.6929
+Write KNN graph costs: 1.12902
+Write KNN graph costs: 1.23509
+Write KNN graph costs: 1.173
+Merge costs: J = 11 I = 0 30.1419
+Merge costs: J = 10 I = 1 29.5905
+Merge costs: J = 9 I = 2 30.3727
+Write KNN graph costs: 1.04534
+Write KNN graph costs: 1.24815
+Write KNN graph costs: 1.13599
+Merge costs: J = 12 I = 0 29.6958
+Merge costs: J = 11 I = 1 29.0118
+Merge costs: J = 10 I = 2 30.2958
+Write KNN graph costs: 1.0205
+Write KNN graph costs: 1.23987
+Write KNN graph costs: 1.16796
+Merge costs: J = 13 I = 0 29.544
+Merge costs: J = 12 I = 1 28.6632
+Merge costs: J = 11 I = 2 29.7714
+Write KNN graph costs: 0.998948
+Write KNN graph costs: 1.18733
+Write KNN graph costs: 1.39678
+Merge costs: J = 14 I = 0 29.3861
+Merge costs: J = 13 I = 1 29.074
+Write KNN graph costs: 1.0177
+Merge costs: J = 12 I = 2 28.9728
+Write KNN graph costs: 1.20703
+Write KNN graph costs: 1.197
+Merge costs: J = 15 I = 0 29.9675
+Merge costs: J = 14 I = 1 29.2522
+Write KNN graph costs: 1.04453
+Merge costs: J = 13 I = 2 29.0377
+Write KNN graph costs: 1.25252
+Write KNN graph costs: 1.19291
+Merge costs: J = 16 I = 0 29.3978
+Merge costs: J = 15 I = 1 29.1355
+Write KNN graph costs: 1.11153
+Merge costs: J = 14 I = 2 28.5499
+Write KNN graph costs: 1.19173
+Write KNN graph costs: 1.18425
+Merge costs: J = 17 I = 0 29.7885
+Merge costs: J = 16 I = 1 28.6869
+Write KNN graph costs: 0.990235
+Merge costs: J = 15 I = 2 28.9634
+Write KNN graph costs: 1.19848
+Write KNN graph costs: 1.19315
+Merge costs: J = 18 I = 0 29.8302
+Merge costs: J = 17 I = 1 29.1928
+Merge costs: J = 16 I = 2 28.4382
+Write KNN graph costs: 1.11441
+Write KNN graph costs: 1.19255
+Write KNN graph costs: 1.18879
+Merge costs: J = 19 I = 0 29.3898
+Merge costs: J = 18 I = 1 29.1746
+Write KNN graph costs: 1.00166
+Merge costs: J = 17 I = 2 28.9011
+Write KNN graph costs: 1.05347
+Write KNN graph costs: 1.18176
+Merge costs: J = 20 I = 0 30.0577
+Merge costs: J = 19 I = 1 28.7768
+Write KNN graph costs: 0.999398
+Merge costs: J = 18 I = 2 28.6891
+Write KNN graph costs: 1.19653
+Write KNN graph costs: 1.12357
+Merge costs: J = 21 I = 0 29.5696
+Merge costs: J = 20 I = 1 29.193
+Merge costs: J = 19 I = 2 28.7393
+Write KNN graph costs: 1.06741
+Write KNN graph costs: 1.73659
+Write KNN graph costs: 1.72811
+Merge costs: J = 22 I = 0 31.2953
+Merge costs: J = 21 I = 1 28.8889
+Write KNN graph costs: 1.1723
+Merge costs: J = 20 I = 2 31.4671
+Write KNN graph costs: 1.09643
+Write KNN graph costs: 1.23514
+Merge costs: J = 23 I = 0 29.9049
+Merge costs: J = 22 I = 1 29.2136
+Write KNN graph costs: 1.06229
+Merge costs: J = 21 I = 2 28.7528
+Write KNN graph costs: 1.14569
+Write KNN graph costs: 1.02115
+Merge costs: J = 23 I = 1 29.3406
+Merge costs: J = 22 I = 2 28.982
+Write KNN graph costs: 1.01093
+Write KNN graph costs: 0.951585
+Merge costs: J = 23 I = 2 28.9156
+Write KNN graph costs: 0.996996
+Shard 3 foi ativado e ira comecar
+END para 3 -> 140690528880720 
+
+Merge costs: J = 4 I = 3 30.273
+Write KNN graph costs: 1.0127
+Merge costs: J = 5 I = 3 29.2263
+Write KNN graph costs: 1.11329
+Shard 4 foi ativado e ira comecar
+END para 4 -> 140690520488016 
+
+Merge costs: J = 6 I = 3 29.3856
+Write KNN graph costs: 1.0393
+Merge costs: J = 5 I = 4 31.1475
+Write KNN graph costs: 1.09772
+Merge costs: J = 7 I = 3 29.3236
+Write KNN graph costs: 1.22308
+Merge costs: J = 6 I = 4 29.3845
+Write KNN graph costs: 1.05787
+Shard 5 foi ativado e ira comecar
+END para 5 -> 140689799071824 
+
+Merge costs: J = 8 I = 3 29.6924
+Write KNN graph costs: 1.03807
+Merge costs: J = 7 I = 4 29.6099
+Merge costs: J = 6 I = 5 31.1071
+Write KNN graph costs: 1.42965
+Write KNN graph costs: 1.15272
+Merge costs: J = 9 I = 3 29.4972
+Write KNN graph costs: 1.37406
+Merge costs: J = 8 I = 4 29.4129
+Merge costs: J = 7 I = 5 28.9154
+Write KNN graph costs: 1.22516
+Write KNN graph costs: 1.03024
+Merge costs: J = 10 I = 3 30.812
+Write KNN graph costs: 1.11248
+Merge costs: J = 9 I = 4 30.7022
+Merge costs: J = 8 I = 5 29.0168
+Write KNN graph costs: 1.38798
+Write KNN graph costs: 1.20574
+Merge costs: J = 11 I = 3 29.292
+Write KNN graph costs: 1.16232
+Merge costs: J = 10 I = 4 29.1366
+Merge costs: J = 9 I = 5 30.3543
+Write KNN graph costs: 1.02297
+Write KNN graph costs: 1.0638
+Merge costs: J = 12 I = 3 28.8829
+Write KNN graph costs: 1.16848
+Merge costs: J = 11 I = 4 29.5312
+Merge costs: J = 10 I = 5 28.5177
+Write KNN graph costs: 0.980321
+Write KNN graph costs: 1.11702
+Merge costs: J = 13 I = 3 29.357
+Write KNN graph costs: 1.16607
+Merge costs: J = 12 I = 4 29.3329
+Merge costs: J = 11 I = 5 29.028
+Write KNN graph costs: 1.16956
+Write KNN graph costs: 1.16631
+Merge costs: J = 14 I = 3 29.1182
+Write KNN graph costs: 1.16119
+Merge costs: J = 13 I = 4 29.3334
+Merge costs: J = 12 I = 5 28.5857
+Write KNN graph costs: 1.00482
+Write KNN graph costs: 1.18057
+Merge costs: J = 15 I = 3 29.1758
+Write KNN graph costs: 1.16068
+Merge costs: J = 14 I = 4 29.4838
+Merge costs: J = 13 I = 5 29.0097
+Write KNN graph costs: 1.00214
+Write KNN graph costs: 1.17592
+Merge costs: J = 16 I = 3 29.3626
+Write KNN graph costs: 1.15505
+Merge costs: J = 15 I = 4 29.1415
+Merge costs: J = 14 I = 5 28.9584
+Write KNN graph costs: 1.03639
+Write KNN graph costs: 1.17331
+Merge costs: J = 17 I = 3 28.9825
+Write KNN graph costs: 1.21706
+Merge costs: J = 16 I = 4 29.463
+Merge costs: J = 15 I = 5 28.6174
+Write KNN graph costs: 1.00021
+Write KNN graph costs: 1.18148
+Merge costs: J = 18 I = 3 29.3578
+Write KNN graph costs: 1.04279
+Merge costs: J = 17 I = 4 29.1949
+Merge costs: J = 16 I = 5 29.0961
+Write KNN graph costs: 1.06235
+Write KNN graph costs: 1.18389
+Merge costs: J = 19 I = 3 28.9244
+Write KNN graph costs: 1.14975
+Merge costs: J = 18 I = 4 29.4849
+Merge costs: J = 17 I = 5 28.6257
+Write KNN graph costs: 1.11002
+Write KNN graph costs: 1.17611
+Merge costs: J = 20 I = 3 29.367
+Write KNN graph costs: 1.1533
+Merge costs: J = 19 I = 4 29.4291
+Merge costs: J = 18 I = 5 29.0911
+Write KNN graph costs: 1.01497
+Write KNN graph costs: 1.04394
+Merge costs: J = 21 I = 3 29.1396
+Write KNN graph costs: 0.989619
+Merge costs: J = 20 I = 4 29.175
+Merge costs: J = 19 I = 5 28.6183
+Write KNN graph costs: 1.0107
+Write KNN graph costs: 1.16679
+Merge costs: J = 22 I = 3 29.0986
+Write KNN graph costs: 0.967539
+Merge costs: J = 21 I = 4 29.4102
+Merge costs: J = 20 I = 5 29.066
+Write KNN graph costs: 1.24471
+Write KNN graph costs: 1.22976
+Merge costs: J = 23 I = 3 29.3709
+Write KNN graph costs: 0.984943
+Merge costs: J = 22 I = 4 29.0788
+Merge costs: J = 21 I = 5 28.8611
+Write KNN graph costs: 1.22897
+Write KNN graph costs: 1.0048
+Merge costs: J = 23 I = 4 29.4448
+Merge costs: J = 22 I = 5 29.036
+Write KNN graph costs: 1.00519
+Write KNN graph costs: 0.954635
+Merge costs: J = 23 I = 5 28.9967
+Write KNN graph costs: 1.01633
+Shard 6 foi ativado e ira comecar
+END para 6 -> 140689799071824 
+
+Merge costs: J = 7 I = 6 30.2784
+Write KNN graph costs: 1.22862
+Merge costs: J = 8 I = 6 29.3155
+Write KNN graph costs: 1.17306
+Shard 7 foi ativado e ira comecar
+END para 7 -> 140690520488016 
+
+Merge costs: J = 9 I = 6 29.0852
+Write KNN graph costs: 1.11016
+Merge costs: J = 8 I = 7 30.9279
+Write KNN graph costs: 1.15357
+Merge costs: J = 10 I = 6 29.625
+Write KNN graph costs: 1.17448
+Merge costs: J = 9 I = 7 29.5493
+Write KNN graph costs: 1.11665
+Shard 8 foi ativado e ira comecar
+END para 8 -> 140690528880720 
+
+Merge costs: J = 11 I = 6 29.7784
+Write KNN graph costs: 0.983969
+Merge costs: J = 10 I = 7 29.268
+Merge costs: J = 9 I = 8 29.6188
+Write KNN graph costs: 1.03985
+Write KNN graph costs: 1.07937
+Merge costs: J = 12 I = 6 29.6181
+Write KNN graph costs: 0.990987
+Merge costs: J = 11 I = 7 29.4869
+Merge costs: J = 10 I = 8 28.7551
+Write KNN graph costs: 1.51103
+Write KNN graph costs: 1.12643
+Merge costs: J = 13 I = 6 30.0303
+Merge costs: J = 12 I = 7 29.1766
+Write KNN graph costs: 0.959486
+Merge costs: J = 11 I = 8 28.7229
+Write KNN graph costs: 1.20137
+Write KNN graph costs: 1.1798
+Merge costs: J = 14 I = 6 29.3611
+Merge costs: J = 13 I = 7 28.7766
+Write KNN graph costs: 0.994124
+Merge costs: J = 12 I = 8 28.4964
+Write KNN graph costs: 1.2083
+Write KNN graph costs: 1.20587
+Merge costs: J = 15 I = 6 29.5951
+Merge costs: J = 14 I = 7 29.1812
+Write KNN graph costs: 1.08006
+Merge costs: J = 13 I = 8 28.8218
+Write KNN graph costs: 1.20176
+Write KNN graph costs: 1.19603
+Merge costs: J = 16 I = 6 29.6491
+Merge costs: J = 15 I = 7 28.8328
+Write KNN graph costs: 1.05034
+Merge costs: J = 14 I = 8 28.6358
+Write KNN graph costs: 1.21124
+Write KNN graph costs: 1.1867
+Merge costs: J = 17 I = 6 29.479
+Merge costs: J = 16 I = 7 29.1474
+Write KNN graph costs: 1.0945
+Merge costs: J = 15 I = 8 28.6376
+Write KNN graph costs: 1.1755
+Write KNN graph costs: 1.1891
+Merge costs: J = 18 I = 6 29.7745
+Merge costs: J = 17 I = 7 28.8395
+Write KNN graph costs: 1.12471
+Merge costs: J = 16 I = 8 28.9122
+Write KNN graph costs: 1.19334
+Write KNN graph costs: 1.20049
+Merge costs: J = 19 I = 6 29.883
+Merge costs: J = 18 I = 7 29.2989
+Write KNN graph costs: 1.01125
+Merge costs: J = 17 I = 8 28.6139
+Write KNN graph costs: 1.05805
+Write KNN graph costs: 1.18348
+Merge costs: J = 20 I = 6 29.56
+Merge costs: J = 19 I = 7 29.1785
+Write KNN graph costs: 1.04297
+Merge costs: J = 18 I = 8 28.953
+Write KNN graph costs: 1.21231
+Write KNN graph costs: 1.06828
+Merge costs: J = 21 I = 6 29.8248
+Merge costs: J = 20 I = 7 28.7842
+Merge costs: J = 19 I = 8 28.4887
+Write KNN graph costs: 1.16914
+Write KNN graph costs: 1.18445
+Write KNN graph costs: 1.19938
+Merge costs: J = 22 I = 6 29.4532
+Merge costs: J = 21 I = 7 29.202
+Write KNN graph costs: 1.21612
+Merge costs: J = 20 I = 8 29.0454
+Write KNN graph costs: 1.01073
+Write KNN graph costs: 1.23805
+Merge costs: J = 23 I = 6 29.9025
+Merge costs: J = 22 I = 7 28.8395
+Write KNN graph costs: 1.16154
+Merge costs: J = 21 I = 8 28.6564
+Write KNN graph costs: 1.14574
+Write KNN graph costs: 1.02028
+Merge costs: J = 23 I = 7 29.2021
+Merge costs: J = 22 I = 8 28.9246
+Write KNN graph costs: 1.02152
+Write KNN graph costs: 0.969591
+Merge costs: J = 23 I = 8 29.094
+Write KNN graph costs: 0.994034
+Shard 9 foi ativado e ira comecar
+END para 9 -> 140690528880720 
+
+Merge costs: J = 10 I = 9 30.367
+Write KNN graph costs: 1.14196
+Merge costs: J = 11 I = 9 29.2327
+Write KNN graph costs: 0.963127
+Shard 10 foi ativado e ira comecar
+END para 10 -> 140690520488016 
+
+Merge costs: J = 12 I = 9 29.5845
+Write KNN graph costs: 1.00319
+Merge costs: J = 11 I = 10 31.1288
+Write KNN graph costs: 0.99608
+Merge costs: J = 13 I = 9 29.8177
+Write KNN graph costs: 1.00113
+Merge costs: J = 12 I = 10 29.5226
+Write KNN graph costs: 1.06219
+Shard 11 foi ativado e ira comecar
+END para 11 -> 140690537273424 
+
+Merge costs: J = 14 I = 9 29.9431
+Merge costs: J = 13 I = 10 29.0346
+Write KNN graph costs: 0.99259
+Merge costs: J = 12 I = 11 30.0758
+Write KNN graph costs: 1.18506
+Write KNN graph costs: 1.1834
+Merge costs: J = 15 I = 9 30.5985
+Merge costs: J = 14 I = 10 29.2817
+Write KNN graph costs: 1.21538
+Merge costs: J = 13 I = 11 28.721
+Write KNN graph costs: 1.17247
+Write KNN graph costs: 1.17797
+Merge costs: J = 16 I = 9 29.7518
+Merge costs: J = 15 I = 10 29.1599
+Write KNN graph costs: 1.00238
+Merge costs: J = 14 I = 11 28.7709
+Write KNN graph costs: 1.19813
+Write KNN graph costs: 1.31381
+Merge costs: J = 17 I = 9 29.634
+Merge costs: J = 16 I = 10 28.7047
+Write KNN graph costs: 1.00324
+Merge costs: J = 15 I = 11 28.9677
+Write KNN graph costs: 1.20686
+Write KNN graph costs: 1.19489
+Merge costs: J = 18 I = 9 29.9475
+Merge costs: J = 17 I = 10 30.2306
+Merge costs: J = 16 I = 11 28.5161
+Write KNN graph costs: 1.2226
+Write KNN graph costs: 1.17753
+Write KNN graph costs: 1.17458
+Merge costs: J = 19 I = 9 29.6253
+Merge costs: J = 18 I = 10 29.2118
+Write KNN graph costs: 1.01344
+Merge costs: J = 17 I = 11 28.8959
+Write KNN graph costs: 1.06642
+Write KNN graph costs: 1.16412
+Merge costs: J = 20 I = 9 29.8119
+Merge costs: J = 19 I = 10 29.0193
+Write KNN graph costs: 0.999321
+Merge costs: J = 18 I = 11 28.7955
+Write KNN graph costs: 1.17542
+Write KNN graph costs: 1.05811
+Merge costs: J = 21 I = 9 29.9652
+Merge costs: J = 20 I = 10 28.9256
+Merge costs: J = 19 I = 11 28.4846
+Write KNN graph costs: 1.16148
+Write KNN graph costs: 1.39419
+Write KNN graph costs: 1.20633
+Merge costs: J = 22 I = 9 29.4045
+Merge costs: J = 21 I = 10 29.1596
+Merge costs: J = 20 I = 11 29.9588
+Write KNN graph costs: 1.28388
+Write KNN graph costs: 1.02093
+Write KNN graph costs: 1.25159
+Merge costs: J = 23 I = 9 29.7619
+Merge costs: J = 22 I = 10 28.8738
+Merge costs: J = 21 I = 11 28.8597
+Write KNN graph costs: 1.22069
+Write KNN graph costs: 1.22572
+Write KNN graph costs: 1.04985
+Merge costs: J = 23 I = 10 29.2612
+Merge costs: J = 22 I = 11 29.233
+Write KNN graph costs: 1.04129
+Write KNN graph costs: 0.982649
+Merge costs: J = 23 I = 11 29.137
+Write KNN graph costs: 1.0044
+Shard 12 foi ativado e ira comecar
+END para 12 -> 140690537273424 
+
+Merge costs: J = 13 I = 12 29.9872
+Write KNN graph costs: 1.18846
+Merge costs: J = 14 I = 12 28.9887
+Write KNN graph costs: 1.19432
+Shard 13 foi ativado e ira comecar
+END para 13 -> 140690520488016 
+
+Merge costs: J = 15 I = 12 29.1193
+Merge costs: J = 14 I = 13 29.7839
+Write KNN graph costs: 1.22754
+Write KNN graph costs: 1.20943
+Merge costs: J = 16 I = 12 29.3402
+Merge costs: J = 15 I = 13 28.8596
+Write KNN graph costs: 1.19103
+Write KNN graph costs: 1.19375
+Shard 14 foi ativado e ira comecar
+END para 14 -> 140690258344016 
+
+Merge costs: J = 17 I = 12 29.1941
+Merge costs: J = 16 I = 13 28.6202
+Write KNN graph costs: 1.44062
+Write KNN graph costs: 1.27821
+Merge costs: J = 15 I = 14 29.7444
+Write KNN graph costs: 1.21971
+Merge costs: J = 18 I = 12 28.996
+Merge costs: J = 17 I = 13 29.3127
+Write KNN graph costs: 1.10111
+Merge costs: J = 16 I = 14 28.7955
+Write KNN graph costs: 1.22137
+Write KNN graph costs: 1.40191
+Merge costs: J = 19 I = 12 29.3916
+Merge costs: J = 18 I = 13 28.8354
+Write KNN graph costs: 1.25078
+Write KNN graph costs: 1.10881
+Merge costs: J = 17 I = 14 28.9955
+Write KNN graph costs: 1.31583
+Merge costs: J = 20 I = 12 29.0239
+Merge costs: J = 19 I = 13 29.3976
+Write KNN graph costs: 1.26121
+Merge costs: J = 18 I = 14 28.3737
+Write KNN graph costs: 1.27097
+Write KNN graph costs: 1.16122
+Merge costs: J = 21 I = 12 29.3746
+Merge costs: J = 20 I = 13 29.0386
+Write KNN graph costs: 1.05901
+Merge costs: J = 19 I = 14 29.0384
+Write KNN graph costs: 1.24349
+Write KNN graph costs: 1.30823
+Merge costs: J = 22 I = 12 29.1657
+Merge costs: J = 21 I = 13 29.4411
+Write KNN graph costs: 1.09578
+Merge costs: J = 20 I = 14 28.6041
+Write KNN graph costs: 1.11546
+Write KNN graph costs: 1.30904
+Merge costs: J = 23 I = 12 29.6761
+Merge costs: J = 22 I = 13 28.9507
+Write KNN graph costs: 1.06177
+Merge costs: J = 21 I = 14 29.0529
+Write KNN graph costs: 1.02178
+Write KNN graph costs: 1.03512
+Merge costs: J = 23 I = 13 29.0996
+Merge costs: J = 22 I = 14 28.6117
+Write KNN graph costs: 1.02224
+Write KNN graph costs: 1.01963
+Merge costs: J = 23 I = 14 28.9033
+Write KNN graph costs: 0.99199
+Shard 15 foi ativado e ira comecar
+END para 15 -> 140690258344016 
+
+Merge costs: J = 16 I = 15 29.9479
+Write KNN graph costs: 1.18707
+Merge costs: J = 17 I = 15 28.9907
+Write KNN graph costs: 1.18393
+Shard 16 foi ativado e ira comecar
+END para 16 -> 140690520488016 
+
+Merge costs: J = 18 I = 15 29.0433
+Merge costs: J = 17 I = 16 29.9021
+Write KNN graph costs: 1.0678
+Write KNN graph costs: 1.20796
+Merge costs: J = 19 I = 15 28.8561
+Write KNN graph costs: 1.19486
+Merge costs: J = 18 I = 16 28.8376
+Write KNN graph costs: 1.06295
+Shard 17 foi ativado e ira comecar
+END para 17 -> 140690537273424 
+
+Merge costs: J = 20 I = 15 29.2514
+Merge costs: J = 19 I = 16 28.656
+Write KNN graph costs: 1.42005
+Write KNN graph costs: 1.30003
+Merge costs: J = 18 I = 17 29.6792
+Write KNN graph costs: 1.08822
+Merge costs: J = 21 I = 15 29.2798
+Merge costs: J = 20 I = 16 29.4899
+Write KNN graph costs: 1.04737
+Merge costs: J = 19 I = 17 28.4653
+Write KNN graph costs: 1.23278
+Write KNN graph costs: 1.36772
+Merge costs: J = 22 I = 15 29.4926
+Merge costs: J = 21 I = 16 28.8368
+Write KNN graph costs: 1.22356
+Merge costs: J = 20 I = 17 28.5986
+Write KNN graph costs: 1.05198
+Write KNN graph costs: 1.3084
+Merge costs: J = 23 I = 15 29.2206
+Merge costs: J = 22 I = 16 29.1631
+Write KNN graph costs: 1.04595
+Merge costs: J = 21 I = 17 28.9245
+Write KNN graph costs: 1.04516
+Write KNN graph costs: 1.02595
+Merge costs: J = 23 I = 16 28.7254
+Merge costs: J = 22 I = 17 28.8767
+Write KNN graph costs: 1.02184
+Write KNN graph costs: 0.971003
+Merge costs: J = 23 I = 17 28.7688
+Write KNN graph costs: 1.00166
+Shard 18 foi ativado e ira comecar
+END para 18 -> 140690537273424 
+
+Merge costs: J = 19 I = 18 29.8914
+Write KNN graph costs: 1.18317
+Merge costs: J = 20 I = 18 28.9673
+Write KNN graph costs: 1.18569
+Shard 19 foi ativado e ira comecar
+END para 19 -> 140690520488016 
+
+Merge costs: J = 21 I = 18 29.0996
+Merge costs: J = 20 I = 19 29.8148
+Write KNN graph costs: 1.07934
+Write KNN graph costs: 1.26534
+Merge costs: J = 22 I = 18 28.7961
+Write KNN graph costs: 0.983104
+Merge costs: J = 21 I = 19 28.9645
+Write KNN graph costs: 1.01034
+Shard 20 foi ativado e ira comecar
+END para 20 -> 140690258344016 
+
+Merge costs: J = 23 I = 18 29.2714
+Merge costs: J = 22 I = 19 28.5512
+Write KNN graph costs: 1.19129
+Write KNN graph costs: 1.00696
+Merge costs: J = 21 I = 20 29.7318
+Write KNN graph costs: 1.01734
+Merge costs: J = 23 I = 19 29.1755
+Merge costs: J = 22 I = 20 28.2153
+Write KNN graph costs: 1.00704
+Write KNN graph costs: 1.00483
+Merge costs: J = 23 I = 20 28.8987
+Write KNN graph costs: 0.981596
+Shard 21 foi ativado e ira comecar
+END para 21 -> 140690258344016 
+
+Merge costs: J = 22 I = 21 29.6731
+Write KNN graph costs: 0.956172
+Merge costs: J = 23 I = 21 28.9145
+Write KNN graph costs: 0.96666
+Iniciando o último merge
+Shard 22 foi ativado e ira comecar
+END para 22 -> 140736915595088 
+
+Merge costs: J = 23 I = 22 29.6559
+Write KNN graph costs: 0.988347
+Time cost = 4344.035645 
+OFFSET = 0
+OFFSET = 149990000
