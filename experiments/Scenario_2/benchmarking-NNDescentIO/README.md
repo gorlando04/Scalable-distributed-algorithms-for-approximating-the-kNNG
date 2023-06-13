@@ -1,4 +1,4 @@
-# NNDescent
+# NNDescentI/O
 
 This repository presents a modification on the Source code for CIKM 2021 paper [Fast k-NN Graph Construction by GPU based NN-Descent](https://dl.acm.org/doi/10.1145/3459637.3482344). Implementing NNDescent on multi-GPU, but using the Merge algorithm presented on [Fast k-NN Graph Construction by GPU based NN-Descent](https://dl.acm.org/doi/10.1145/3459637.3482344). This code was done to be ran on 3 GPUs,
 
@@ -6,7 +6,7 @@ This repository presents a modification on the Source code for CIKM 2021 paper [
 
 Firstly, it is important to say that in order to compile correctly the source code it is important to follow this instructions:
 
-1. Check GPU compute capability in [NVIDIA](https://developer.nvidia.com/cuda-gpus). After that, it is important to change the value for the correct compute capability in [CMakeLists.txt](https://github.com/gorlando04/Scalable-distributed-algorithms-for-approximating-the-kNNG/blob/main/benchmarking-NNDescent/CMakeLists.txt). In the CMake file, the following value must be changed to the correct compute capability:
+1. Check GPU compute capability in [NVIDIA](https://developer.nvidia.com/cuda-gpus). After that, it is important to change the value for the correct compute capability in [CMakeLists.txt]([https://github.com/gorlando04/Scalable-distributed-algorithms-for-approximating-the-kNNG/blob/main/benchmarking-NNDescent/CMakeLists.txt](https://github.com/gorlando04/Scalable-distributed-algorithms-for-approximating-the-kNNG/blob/main/experiments/Scenario_2/benchmarking-NNDescentIO/CMakeLists.txt)). In the CMake file, the following value must be changed to the correct compute capability:
 
 ```
 set(CMAKE_CUDA_FLAGS "${CMAKE_CUDA_FLAGS} -D_FILE_OFFSET_BITS=64 -O3 -std=c++14 -arch=sm_(COMPUTE_CAPABILITY) -rdc=true -Xcompiler -fopenmp -pthread")
