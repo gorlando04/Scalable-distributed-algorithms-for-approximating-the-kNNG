@@ -1,0 +1,5 @@
+Name,Method,Dim,N_sample,DB Size (GB),Time kNN,Recall@10
+SK-1M-12d,NNDescent,12.0,1000000.0,0.048,4.37,0.973
+SK-10M-12d,NNDescent,12.0,10000000.0,0.48,45.90,0.862
+
+
