@@ -1,4 +1,4 @@
-# NNDescent
+# NNDescent-I/O
 
 This repository presents a modification on the Source code for CIKM 2021 paper [Fast k-NN Graph Construction by GPU based NN-Descent](https://dl.acm.org/doi/10.1145/3459637.3482344). Implementing NNDescent on multi-GPU, but using the Merge algorithm presented on [Fast k-NN Graph Construction by GPU based NN-Descent](https://dl.acm.org/doi/10.1145/3459637.3482344). This code was done to be ran on 3 GPUs,
 
