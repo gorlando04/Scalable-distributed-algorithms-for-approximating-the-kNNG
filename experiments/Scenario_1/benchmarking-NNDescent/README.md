@@ -6,7 +6,7 @@ This repository presents a modification on the Source code for CIKM 2021 paper [
 
 Firstly, it is important to say that in order to compile correctly the source code it is important to follow this instructions:
 
-1. Check GPU compute capability in [NVIDIA](https://developer.nvidia.com/cuda-gpus). After that, it is important to change the value for the correct compute capability in [CMakeLists.txt](https://github.com/gorlando04/Scalable-distributed-algorithms-for-approximating-the-kNNG/blob/main/benchmarking-NNDescent/CMakeLists.txt). In the CMake file, the following value must be changed to the correct compute capability:
+1. Check GPU compute capability in [NVIDIA](https://developer.nvidia.com/cuda-gpus). After that, it is important to change the value for the correct compute capability in [CMakeLists.txt](https://github.com/gorlando04/Scalable-distributed-algorithms-for-approximating-the-kNNG/blob/main/experiments/Scenario_1/benchmarking-NNDescent/CMakeLists.txt). In the CMake file, the following value must be changed to the correct compute capability:
 
 ```
 set(CMAKE_CUDA_FLAGS "${CMAKE_CUDA_FLAGS} -D_FILE_OFFSET_BITS=64 -O3 -std=c++14 -arch=sm_(COMPUTE_CAPABILITY) -rdc=true -Xcompiler -fopenmp -pthread")
@@ -36,7 +36,7 @@ const int MERGE_SAMPLE_NUM = 12;
 const int MERGE_ITERATION = 11;
 ```
 
-Also, in [main.cu](https://github.com/gorlando04/Scalable-distributed-algorithms-for-approximating-the-kNNG/blob/main/benchmarking-NNDescent/main.cu) we have some parameters that must be change ir order to run the algorithm correctly. The first one is on the beggining of the source code
+Also, in [[main.cu](https://github.com/gorlando04/Scalable-distributed-algorithms-for-approximating-the-kNNG/blob/main/benchmarking-NNDescent/main.cu](https://github.com/gorlando04/Scalable-distributed-algorithms-for-approximating-the-kNNG/blob/main/experiments/Scenario_1/benchmarking-NNDescent/main.cu)) we have some parameters that must be change ir order to run the algorithm correctly. The first one is on the beggining of the source code
 
 ```cpp
 #define N_SAMPLE 1000000
@@ -54,14 +54,14 @@ Indicating the dataset that will be used on the experiment.
 
 ## Data
 
-Data can be created by two ways: by running [push.sh](https://github.com/gorlando04/Scalable-distributed-algorithms-for-approximating-the-kNNG/blob/main/benchmarking-NNDescent/data/push.sh) or by running [create.py](https://github.com/gorlando04/Scalable-distributed-algorithms-for-approximating-the-kNNG/blob/main/benchmarking-NNDescent/data/artificial/create.py) using the following command:
+Data can be created by two ways: by running [push.sh](https://github.com/gorlando04/Scalable-distributed-algorithms-for-approximating-the-kNNG/blob/main/experiments/Scenario_1/benchmarking-NNDescent/data/push.sh) or by running [create.py](https://github.com/gorlando04/Scalable-distributed-algorithms-for-approximating-the-kNNG/blob/main/experiments/Scenario_1/benchmarking-NNDescent/data/artificial/create.py) using the following command:
 
 ```
 python3 create.py N_SAMPLE
 ```
 ## Results
 
-The result were checked after the end of the algorithms run. To check the Recall@10 of the kNNG it was necessary to run [brute.py](https://github.com/gorlando04/Scalable-distributed-algorithms-for-approximating-the-kNNG/blob/main/benchmarking-NNDescent/brute/brute.py), however this script must be run on FAISS-container as it uses FAISS-BF method. To run this script the following command needs to be done:
+The result were checked after the end of the algorithms run. To check the Recall@10 of the kNNG it was necessary to run [brute.py](https://github.com/gorlando04/Scalable-distributed-algorithms-for-approximating-the-kNNG/blob/main/experiments/Scenario_1/benchmarking-NNDescent/brute/brute.py), however this script must be run on FAISS-container as it uses FAISS-BF method. To run this script the following command needs to be done:
 
 ```
 python3 brute.py N_SAMPLE
