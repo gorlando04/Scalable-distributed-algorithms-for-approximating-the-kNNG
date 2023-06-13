@@ -13,7 +13,7 @@ repeat(){
         for i in {1..7}
         do 
 
-	python3 bench.py -ngpu 3 -nprobe 5,10,25,50,75,100 -ivf 'ivfpq' -N $N
+        python3 brute.py $N
 
         sleep 2; 
 
@@ -31,4 +31,3 @@ repeat(){
     repeat
 
     echo exit
-

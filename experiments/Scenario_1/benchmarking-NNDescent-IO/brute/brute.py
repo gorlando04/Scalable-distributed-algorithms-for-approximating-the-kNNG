@@ -27,6 +27,7 @@ import math
 ################################################################################################################
 
 args = sys.argv[1:]
+np.random.seed(0)
 
 ngpu = 3#number of gpus to be used
 nprobes_in = [25]
@@ -45,19 +46,17 @@ while args:
 
 K = 20 # Number of neighbors to search
 
-tempmem = -1 #1536*1024*1024 #-1 # option to reduce the temporary memory allocation 
+tempmem = -1 #-1 # option to reduce the temporary memory allocation 
 
 altadd = False # avoids GPU memory overflows during add, IF true add wil not be done on GPU.
 
 replicas = ngpu # Number of shardings
 
-add_batch_size = 32768 # Batch add size (this can be increased)
 search_batch_size = int(16384*3)
 NORM = False
 
 ## Methods
-metodos = {'deterministico': ['brute'],
-           'aproximado':[index_key]
+metodos = {'deterministico': ['brute']
 }
 
 # Define the datasets n sample
@@ -70,7 +69,6 @@ assert faiss.get_num_gpus() >= ngpu
 
 print(f"preparing resources for {ngpu} GPUs")
 
-np.random.seed(0)
 
 ################################################################################################################
 #                                                                                                              #
@@ -293,7 +291,6 @@ def rate_limited_imap(f, l):
 
 
 
-
 ################################################################################################################
 #                                                                                                              #
 #                                           kNN SEARCHING Class                                                #            
@@ -366,6 +363,7 @@ class MultiBrute(MultiGPUIndex):
         
         tf = time.time() - t0
         return sanitize(I),tf
+    
 
 ################################################################################################################
 #                                                                                                              #
@@ -430,6 +428,7 @@ class ShardedMultiGPUIndex:
         return rate_limited_imap(prepare_block, block_ranges)
 
 
+
 ################################################################################################################
 #                                                                                                              #
 #                                           SHARDING BF                                                        #     
@@ -444,211 +443,43 @@ class ShardingBrute(ShardedMultiGPUIndex):
     def __init__(self, data, name, gpu_resources):
         super().__init__(data, name, gpu_resources)
 
-    
-    ## This is the sharding method
+        self.preproc = IdentPreproc(self.D)
+
+
+
+
+################################################################################################################
+#                                                                                                              #
+#                                           kNN SEARCHING                                                      #     
+#                                                                                                              #         
+#                   The function below runs the search of the kNN in batches, for many nprobes                 #
+#                    values, iterating the dataset by the batch_size (sl). This function can be modified       #     
+#                     to return the indices and the distances of the kNN to build the kNNG.                    #
+#                                                                                                              # 
+################################################################################################################
+ 
+
     def search(self,K):
 
-        ## Initiate timer
+
+
+        ## Set the number of queries (in this case the same size of N)
+        nq = self.N
+
+
+        ## Initiate the timer
         t0 = time.time()
 
-        ## N_sample
+        ## Instanciate the indices and distances arrays
+        I = np.empty((nq, K), dtype='int32')
+        D = np.empty((nq, K), dtype='float32')
 
-        nq_gt = self.N
-        if self.N >= int(50e6):
-            nq_gt = int(1e4)
+        ## Auxiliar variable
+        inter_res = ''
 
-        ## Instanciate the Distances and Indices arrays
-        gt_I = np.zeros((nq_gt, K), dtype='int64')
-        gt_D = np.zeros((nq_gt, K), dtype='float32')
+                ## Get the trained index (IVFFLAT, IVFPQ, IVFSQ)
+        indexall = faiss.IndexFlatL2(self.D)
 
-        ## Using faiss heap to mantain the results ordered
-        heaps = faiss.float_maxheap_array_t()
-        heaps.k = K
-        heaps.nh = nq_gt
-        heaps.val = faiss.swig_ptr(gt_D)
-        heaps.ids = faiss.swig_ptr(gt_I)
-        heaps.heapify()
-
-
-        ## Search batch size
-        bs = search_batch_size
-
-
-        ## Make sure that this is the database to search
-        xqs = self.data[:nq_gt]
-
-        ## Create the index
-        db_gt = faiss.IndexFlatL2(self.D)
-        vres, vdev = self.make_vres_vdev()
-
-        ##Turn the index to Multi-GPU
-        db_gt_gpu = faiss.index_cpu_to_gpu_multiple(
-            vres, vdev, db_gt)
-
-        # compute ground-truth by blocks of bs, and add to heaps
-        for i0, xsl in self.dataset_iterator(self.data, IdentPreproc(self.D), bs):
-            db_gt_gpu.add(xsl)
-            D, I = db_gt_gpu.search(xqs, K)
-            I += i0
-            heaps.addn_with_ids(
-                K, faiss.swig_ptr(D), faiss.swig_ptr(I), K)
-            db_gt_gpu.reset()
-            print(f"\r{i0}/{self.N} ({(time.time()-t0):.3f} s) - brute" , end=' ')
-
-        heaps.reorder()
-        t1 = time.time()
-
-
-        return gt_I,(t1-t0)
-
-################################################################################################################
-#                                                                                                              #
-#                                           SHARDING ANN                                                       #     
-#                                                                                                              #         
-#                           This is the class that runs the sharding aNN                                       #     
-#                                                                                                              #     
-#                                                                                                              # 
-################################################################################################################
-
-class ShardingANN(ShardedMultiGPUIndex):
-
-    def __init__(self, data, name, gpu_resources,nlist,nprobe,preproc):
-        super().__init__(data, name, gpu_resources)
-
-        self.nlist = nlist
-        self.nprobe = nprobe
-        self.preproc = preproc
-
-################################################################################################################
-#                                                                                                              #
-#                                           PREPARING QUANTIZER                                                #     
-#                                                                                                              #         
-#                   This area is reserved for functions that control the QUANTIZER                             #
-#                    and the batch iteration of datasets.                                                      #     
-#                                                                                                              #     
-#                                                                                                              # 
-################################################################################################################
-
-    def train_coarse_quantizer(self,x, k):
-
-        
-        ## Gets the dimension
-        d = self.preproc.d_out
-
-        ## Prepare the quantizer
-        clus = faiss.Clustering(d, k)
-
-        ## Set the maximum points per centroid
-        clus.max_points_per_centroid = int(1e7)
-
-        ## Instantiate the timer
-        t0 = time.time()
-
-
-        x = self.preproc.apply_py(sanitize(x))
-
-        ## Set the GPU resources to train the quantizer
-        vres, vdev = self.make_vres_vdev()
-
-        ## Multi-GPU index
-        index = faiss.index_cpu_to_gpu_multiple(
-            vres, vdev, faiss.IndexFlatL2(d))
-
-        ## Train the quantizer (k-means)
-        clus.train(x, index)
-        centroids = faiss.vector_float_to_array(clus.centroids)
-        tf = time.time() - t0
-        ## Return the centroids
-
-        self.train_time = tf
-
-        return centroids.reshape(k, d)
-
-    def prepare_coarse_quantizer(self):
-
-        nt = max(int(1e6), 256 * self.nlist)
-
-        ## Training the quantizer
-        centroids = self.train_coarse_quantizer(self.data[:nt], self.nlist)
-        
-
-
-        ## Add to the Index the centroids (PQ Technique)
-        coarse_quantizer = faiss.IndexFlatL2(self.preproc.d_out)
-        coarse_quantizer.add(centroids)
-
-        return coarse_quantizer
-
-
-################################################################################################################
-#                                                                                                              #
-#                                           TRAINING VECTORS                                                   #     
-#                                                                                                              #         
-#                                     In the function below the index is created                               #
-#                                     and it is also trained.                                                  #     
-#                                                                                                              #     
-#                                                                                                              # 
-################################################################################################################
-
-    def prepare_trained_index(self):
-
-        ## Dimension
-        d = self.preproc.d_out
-
-        ## M
-        m = d
-
-
-        ## Get the coarse quantizer
-        coarse_quantizer = self.prepare_coarse_quantizer()
-
-        idx_model = None
-        if self.name == 'ivfpq':
-            ## HERE IT IS POSSIBLE TO CHANGE THE INDEX THAT WILL BE USED
-            idx_model = faiss.IndexIVFPQ(coarse_quantizer,d , self.nlist, m, 8)
-
-        else:
-            idx_model = faiss.IndexIVFFlat(coarse_quantizer,d,self.nlist) 
-
-
-        coarse_quantizer.this.disown()
-
-        # finish training on CPU
-        ## Here the training wil always be with 1e6 points, because this apporach is only used for datasets that have 60M plus vectors
-        x = self.preproc.apply_py(sanitize(self.data[:int(1e6)]))
-
-        t0 = time.time()
-        idx_model.train(x)
-
-        self.train_time += (time.time() - t0)
-
-        return idx_model
-
-
-
-################################################################################################################
-#                                                                                                              #
-#                                           GET THE INDEX                                                      #     
-#                                                                                                              #         
-#                                     In the function below the index is created                               #
-#                                     and it is also sharded.                                                  #     
-#                                                                                                              #     
-#                                                                                                              # 
-################################################################################################################
-
-
-    def compute_populated_index(self):
-
-        """
-        Add elements to a sharded index. 
-        Return the index and if available
-        a sharded gpu_index that contains the same data. 
-        """
-
-        ## Get the trained index (IVFFLAT, IVFPQ, IVFSQ)
-        indexall = self.prepare_trained_index()
-
-        
         ## Set the setting of Multi-GPU Execution
         co = faiss.GpuMultipleClonerOptions()
         co.usePrecomputed = False
@@ -666,167 +497,11 @@ class ShardingANN(ShardedMultiGPUIndex):
         ## Now it is time to add the vector to the index, to be possible to search the kNN
 
 
-
         ## Number of vectors to add
-        nb = self.N
-
-        t0 = time.time()
-        ## Adding in batches
-        for i0, xs in self.dataset_iterator(self.data, self.preproc, add_batch_size):
-            
-            ## Get the end of the batch
-            i1 = i0 + xs.shape[0]
-
-            ## Add the index with ids, to speed up the process
-            gpu_index.add_with_ids(xs, np.arange(i0, i1))
-            
-        self.add_time = time.time() - t0
 
 
-        t0 = time.time()
-        ## This is made because in other function it is possible to overwrite the GPU index, so it is necessary to save the indices
-        if hasattr(gpu_index, 'at'):
-            # it is a sharded index
-            for i in range(ngpu):
-                index_src = faiss.index_gpu_to_cpu(gpu_index.at(i))
-                index_src.copy_subset_to(indexall, 0, 0, nb)
-
-        self.aux_time = time.time() - t0
-
-        return gpu_index, indexall
-
-
-    def compute_populated_index_2(self):
-
-        indexall = self.prepare_trained_index()
-
-
-        # set up a 3-stage pipeline that does:
-        # - stage 1: load + preproc
-        # - stage 2: assign on GPU
-        # - stage 3: add to index
-
-        stage1 = self.dataset_iterator(self.data, self.preproc, add_batch_size)
-
-        vres, vdev = self.make_vres_vdev()
-        coarse_quantizer_gpu = faiss.index_cpu_to_gpu_multiple(
-            vres, vdev, indexall.quantizer)
-
-        def quantize(args):
-            (i0, xs) = args
-            _, assign = coarse_quantizer_gpu.search(xs, 1)
-            return i0, xs, assign.ravel()
-
-        stage2 = rate_limited_imap(quantize, stage1)
-
-
-
-        for i0, xs, assign in stage2:
-            i1 = i0 + xs.shape[0]
-            if indexall.__class__ == faiss.IndexIVFPQ:
-                indexall.add_core_o(i1 - i0, faiss.swig_ptr(xs),
-                                    None, None, faiss.swig_ptr(assign))
-                
-            elif indexall.__class__ == faiss.IndexIVFFlat:
-                indexall.add_core(i1 - i0, faiss.swig_ptr(xs), None,
-                                faiss.swig_ptr(assign))
-
-        return None, indexall
-
-
-    ## Gets the index that will be used to search the kNN
-    ## Then make the shards that will be used in the search
-    def get_populated_index(self):
-
-        ## Decidir se os indices ficarão adicionados em GPU ou em CPU (caso não caibam em GPU de nenhuma maneira --> 1 BILHÃO)
-        if not altadd:
-            gpu_index, indexall = self.compute_populated_index()
-        
-        
-        else:
-            gpu_index, indexall = self.compute_populated_index_2()
-        
-
-        ## Multi-GPU configuration
-        co = faiss.GpuMultipleClonerOptions()
-        co.useFloat16 = False
-        co.useFloat16CoarseQuantizer = False
-        co.usePrecomputed = False
-        co.indicesOptions = 0
-        co.verbose = False
-        co.shard = True 
-
-        t0 = time.time()
-
-        ## Move index to GPU if there is no GPU Index
-
-
-        # We override the GPU index
-        del gpu_index 
-
-
-        ## Make de sharding
-        index = faiss.IndexReplicas()
-
-
-        for i in range(replicas):
-
-            ## Get gpus
-            gpu0 = ngpu * i // replicas
-            gpu1 = ngpu * (i + 1) // replicas
-
-            ## Get resources for the gpus
-            vres, vdev = self.make_vres_vdev(gpu0, gpu1)
-
-
-            ## Index multiGPU
-            index1 = faiss.index_cpu_to_gpu_multiple(
-                vres, vdev, indexall, co)
-            
-            ##Ading the index to the sharding
-            index1.this.disown()
-            index.addIndex(index1)
-
-        self.aux_time += (time.time() - t0)
-        del indexall
-
-        self.index = index
-
-
-################################################################################################################
-#                                                                                                              #
-#                                           kNN SEARCHING                                                      #     
-#                                                                                                              #         
-#                   The function below runs the search of the kNN in batches, for many nprobes                 #
-#                    values, iterating the dataset by the batch_size (sl). This function can be modified       #     
-#                     to return the indices and the distances of the kNN to build the kNNG.                    #
-#                                                                                                              # 
-################################################################################################################
- 
-
-    def search(self,K):
-
-        ## Set the index parameters easier
-        ps = faiss.GpuParameterSpace()
-        ps.initialize(self.index)
-
-
-        ## Set the number of queries (in this case the same size of N)
-        nq = self.N
-
-
-        ## Set nprobe to the index
-        ps.set_index_parameter(self.index, 'nprobe', self.nprobe)
-        print(self.nprobe)
-        ## Initiate the timer
-        t0 = time.time()
-
-        ## Instanciate the indices and distances arrays
-        I = np.empty((nq, K), dtype='int32')
-        D = np.empty((nq, K), dtype='float32')
-
-        ## Auxiliar variable
-        inter_res = ''
+        gpu_index.add(self.data)
+        self.index = gpu_index
 
         ## Dataset iterator return the indices and the dataset, so i0 = indices and xs = batched array
         for i0, xs in self.dataset_iterator(self.data, self.preproc, search_batch_size):
@@ -886,27 +561,7 @@ def instanciate_dataset(n,d):
     return db, name
 
 
-def eval_intersection_measure(gt_I, I):
-   #measure intersection measure (used for knngraph)
 
-    n,k = gt_I.shape
-    recall_value = (gt_I[:,:] == I[:,:]).sum() / float(n*k)
-
-    return recall_value
-
-def recall(gt_I,I,k):
-
-    
-    #Somatório dos k primeiros vizinhos positivos dividido por n*k
-    n = I.shape[0]
-
-    if n >= int(50e6):
-        return eval_intersection_measure(gt_I[:,1:k+1], I[:int(1e4),1:k+1])
-
-
-    recall_value = (gt_I[:,:k] == I[:,:k]).sum() / (float(n*k))
-    
-    return recall_value
 
 
 
@@ -925,22 +580,14 @@ def create_object(name,info):
             one BF, else instanciate the sharding one
     """
 
-    ## Create brute force index
 
-    if name == 'brute':
 
-        if info['N_sample'] <= int(30e6):
-            index = MultiBrute(info['data'],name)
-        else:
-            index = ShardingBrute(info['data'],name,info['gpu_res'])
 
-        return index
+    index = ShardingBrute(info['data'],name,info['gpu_res'])
 
-    preproc = get_preprocessor(info['data'])
-
-    index = ShardingANN(info['data'],name,info['gpu_res'],info['nList'],info['nprobe'],preproc)
-    
     return index
+
+
 
 
 
@@ -962,8 +609,6 @@ def main():
     df_gpu = None
 
     file_name = 'sharding.csv'
-    if N > int(0.6e6):
-        file_name = 'large_sharding.csv'
     ## Initializating the dataframe
     try:
         
@@ -979,14 +624,12 @@ def main():
 
 
     ## Setting recall@K value
-    rec_k = 10
 
     ## Iterate the datasets
     for n in dbs:
-
+        
         if n == 0:
             n = int(1e6)
-        
         #Create the dataset
         data,name = instanciate_dataset(n,d)
 
@@ -1011,15 +654,8 @@ def main():
                 on the list above. It will be possible to order the results by time or recall
                 """
 
-                ## Setting nlists and nprobes values for the approximate method
-                nlist = int( 2 ** ( 2 * round(math.log(n,10)) ) )
 
-                nprobes = nprobes_in
 
-                ## Setting random values for brute method
-                if method == 'brute':
-                    nlist = 0
-                    nprobes = [0]
 
                 ## Info declaration
 
@@ -1042,89 +678,39 @@ def main():
                 
                 info['gpu_res'] = gpu_resources
 
-                info['nList'] = nlist
-                info['nprobe'] = 0
                 info['DB Size (GB)'] = size
                 info['data'] = data
 
-                NPROBE = 5
 
-                try:
 
-                    ## Create the object by the name 
-                    index = create_object(method,info)
+                ## Create the object by the name 
+                index = create_object(method,info)
+                print(index)
+                print("Begining search")
+                indices,time_knn = index.search(K)
 
-                    if method != 'brute':
-                        index.get_populated_index()
-                        info['Train time'] = index.train_time
-                        info['Add time'] = index.add_time
-                        info['Move time'] = index.aux_time
-                        info['Total'] = info['Train time'] + info['Add time'] + info['Move time']
-                    
-                                    ## Primary iteration
-                    for nprobe in nprobes:
+                print(f"INDICES {indices.shape}")
+                print(indices[0])
+                indices = indices[:,1:]
 
-                        ## Perform the search, saving the indices and the kNN time
-                        info['nprobe'] = nprobe
-                        index.nprobe = nprobe
-                        NPROBE = nprobe
-                        print("Begining search")
-                        indices,time_knn = index.search(K)
+
+                info['Time kNN'] = time_knn
+
+
+
                 
-                        rec_value = '-'
 
-                        ## Save the exact result
-                        if method == 'brute':
-                            brute_indices = indices.copy()
-                            s = f'Recall@{rec_k}'
-                            info['Total'] = time_knn
-
-                            info['Time kNN'] = time_knn
-                            info[s] = rec_value
-
-                        ## Calculate the results and ADD them to the list
-                        if method != 'brute':
-                            rec_value = recall(brute_indices,indices,rec_k)
-                            s = f'Recall@{rec_k}'
-                            info['Time kNN'] = time_knn
-                            info[s] = rec_value
-                            info['Total'] += time_knn
-
-                    
-
-                        write_df(df_gpu,indice,info)
+                write_df(df_gpu,indice,info)
 
 
-                        #Show the informations to check how the test is going and in what stage the test is on
-                        print(f"Iteration -> {indice} DB -> {name} Dim -> {dim} N -> {n_sample} Finished in {time_knn:.5} secs, method -> {method}, recall -> {rec_value}, nlist -> {nlist} nprobe -> {nprobe} TOTAL ->{info['Total']:.3}")            
-                        info['Total'] -= time_knn
-                        ## Writing control variable
-                        indice += 1
-                        del indices
+                #Show the informations to check how the test is going and in what stage the test is on
+                print(f"Iteration -> {indice} DB -> {name} Dim -> {dim} N -> {n_sample} Finished in {time_knn:.5} secs, method -> {method}")            
+                np.savetxt(f'SK-{n_sample/1e6}M_gt.txt', indices, delimiter=' ',fmt='%.0f')
 
-                    del index
-                except Exception as e:
-                    
-                    s = f'Recall@{rec_k}'
-                    info = {'Time kNN':'-',s:'-','nList':nlist,'nprobe':NPROBE}
-                    info['Name'] = name
-                    info['Method'] = method
-                    info['Dim'] = dim
-                    info['N_sample'] = n_sample
-                    info['DB Size (GB)'] = size
-                    info['Erro'] = str(e)
 
-                    write_df(df_gpu,indice,info)
-
-                    #Show the informations to check how the test is going and in what stage the test is on
-                    print(f"Iteration -> {indice} DB -> {name} Dim -> {dim} N -> {n_sample} Cancelled , method -> {method}, recall -> -, nlist -> {nlist} nprobe -> {NPROBE}") 
-                    time.sleep(2)
-                del gpu_resources
-        del brute_indices
     ## Write DataFrame 
     df_gpu.to_csv(file_name, index=False)
 
 
 main()
 gc.collect()
-

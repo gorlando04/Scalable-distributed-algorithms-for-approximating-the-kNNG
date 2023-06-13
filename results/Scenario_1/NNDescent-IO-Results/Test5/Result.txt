@@ -1,0 +1,133 @@
+PREPARE SET TO false.
+SHARDS SET TO 9.
+N SET TO 50000000.
+Data path: /nndescent/GPU_KNNG/data/vectors
+Total vecs num: 50000000
+Shards num: 9
+Max vecs num. per shard: 10000000
+Vecs num. per shard: 5555555
+Vecs num. of last shard: 5555560
+There is no active ID.
+-> 50000000
+Na hora de criar o grafo: NUM: 50000000 e DIM = 32
+SIZET = 13200000000
+Na hora de criar o grafo: NUM: 50000000 e DIM = 32
+SIZET = 13200000000
+Iniciou?Building No. 0
+Building No. 2
+Building No. 1
+End building No.0 in 18.9877 seconds
+End building No.2 in 19.0401 seconds
+End building No.1 in 19.0891 seconds
+Building No. 5
+Building No. 3
+Building No. 4
+End building No.5 in 19.1712 seconds
+End building No.3 in 19.2008 seconds
+End building No.4 in 19.2506 seconds
+Building No. 8
+Building No. 6
+Building No. 7
+End building No.6 in 19.3248 seconds
+End building No.7 in 19.3784 seconds
+End building No.8 in 19.4992 seconds
+
+Iniciando o merge
+Shard 0 foi ativado e ira comecar
+END para 0 -> 140029322016848 
+
+Merge costs: J = 1 I = 0 26.6487
+Write KNN graph costs: 0.89312
+Merge costs: J = 2 I = 0 25.7658
+Write KNN graph costs: 0.850922
+Merge costs: J = 3 I = 0 25.9767
+Shard 1 foi ativado e ira comecar
+END para 1 -> 140028105672784 
+
+Write KNN graph costs: 1.06205
+Merge costs: J = 4 I = 0 25.8569
+Merge costs: J = 2 I = 1 27.3933
+Write KNN graph costs: 0.862733
+Write KNN graph costs: 0.862742
+Merge costs: J = 5 I = 0 25.8428
+Merge costs: J = 3 I = 1 25.4961
+Write KNN graph costs: 1.05304
+Write KNN graph costs: 1.1357
+Merge costs: J = 6 I = 0 25.9132
+Merge costs: J = 4 I = 1 25.7948
+Write KNN graph costs: 0.875113
+Shard 2 foi ativado e ira comecar
+END para 2 -> 140029330409552 
+
+Write KNN graph costs: 0.891535
+Merge costs: J = 7 I = 0 25.8827
+Merge costs: J = 5 I = 1 25.899
+Write KNN graph costs: 0.864134
+Merge costs: J = 3 I = 2 27.6468
+Write KNN graph costs: 1.06078
+Write KNN graph costs: 0.907958
+Merge costs: J = 8 I = 0 26.4652
+Merge costs: J = 6 I = 1 26.2716
+Write KNN graph costs: 1.23934
+Merge costs: J = 4 I = 2 26.1887
+Write KNN graph costs: 0.936412
+Write KNN graph costs: 1.04897
+Merge costs: J = 7 I = 1 25.9859
+Merge costs: J = 5 I = 2 25.4852
+Write KNN graph costs: 1.03233
+Write KNN graph costs: 1.41322
+Merge costs: J = 8 I = 1 27.2873
+Merge costs: J = 6 I = 2 25.7302
+Write KNN graph costs: 0.867066
+Write KNN graph costs: 1.06599
+Merge costs: J = 7 I = 2 25.6447
+Write KNN graph costs: 1.042
+Merge costs: J = 8 I = 2 26.7192
+Write KNN graph costs: 1.13803
+Shard 3 foi ativado e ira comecar
+END para 3 -> 140029330409552 
+
+Merge costs: J = 4 I = 3 26.6656
+Write KNN graph costs: 0.848234
+Merge costs: J = 5 I = 3 25.7059
+Write KNN graph costs: 1.03401
+Merge costs: J = 6 I = 3 25.7362
+Shard 4 foi ativado e ira comecar
+END para 4 -> 140029322016848 
+
+Write KNN graph costs: 0.8588
+Merge costs: J = 7 I = 3 25.9148
+Merge costs: J = 5 I = 4 27.4743
+Write KNN graph costs: 0.873481
+Write KNN graph costs: 1.04844
+Merge costs: J = 8 I = 3 25.7658
+Merge costs: J = 6 I = 4 25.3696
+Write KNN graph costs: 1.05363
+Write KNN graph costs: 0.842302
+Merge costs: J = 7 I = 4 25.6445
+Shard 5 foi ativado e ira comecar
+END para 5 -> 140028105672784 
+
+Write KNN graph costs: 0.850307
+Merge costs: J = 8 I = 4 25.8861
+Merge costs: J = 6 I = 5 27.0459
+Write KNN graph costs: 1.00511
+Write KNN graph costs: 1.08279
+Merge costs: J = 7 I = 5 25.3905
+Write KNN graph costs: 1.10763
+Merge costs: J = 8 I = 5 25.5447
+Write KNN graph costs: 0.861618
+Shard 6 foi ativado e ira comecar
+END para 6 -> 140028105672784 
+
+Merge costs: J = 7 I = 6 26.7145
+Write KNN graph costs: 0.850032
+Merge costs: J = 8 I = 6 25.7818
+Write KNN graph costs: 1.04353
+Iniciando o último merge
+Shard 7 foi ativado e ira comecar
+END para 7 -> 140736320292336 
+
+Merge costs: J = 8 I = 7 27.1775
+Write KNN graph costs: 1.0963
+Time cost = 851.012939 

@@ -1,0 +1,37 @@
+PREPARE SET TO false.
+SHARDS SET TO 3.
+N SET TO 20000000.
+Data path: /nndescent/GPU_KNNG/data/vectors
+Total vecs num: 20000000
+Shards num: 3
+Max vecs num. per shard: 10000000
+Vecs num. per shard: 6666666
+Vecs num. of last shard: 6666668
+There is no active ID.
+-> 20000000
+Na hora de criar o grafo: NUM: 20000000 e DIM = 32
+SIZET = 5280000000
+Na hora de criar o grafo: NUM: 20000000 e DIM = 32
+SIZET = 5280000000
+Iniciou?Building No. 2
+Building No. 0
+Building No. 1
+End building No.2 in 22.8596 seconds
+End building No.0 in 22.918 seconds
+End building No.1 in 22.9808 seconds
+
+Iniciando o merge
+Shard 0 foi ativado e ira comecar
+END para 0 -> 139705758726224 
+
+Merge costs: J = 1 I = 0 31.874
+Write KNN graph costs: 1.03457
+Merge costs: J = 2 I = 0 30.9488
+Write KNN graph costs: 1.24608
+Iniciando o último merge
+Shard 1 foi ativado e ira comecar
+END para 1 -> 140736219770912 
+
+Merge costs: J = 2 I = 1 32.7203
+Write KNN graph costs: 1.25444
+Time cost = 156.804245 

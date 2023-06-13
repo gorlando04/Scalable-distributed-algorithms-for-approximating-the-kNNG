@@ -1,0 +1,8 @@
+(1000000, 32)
+(1000000, 19)
+Antes de tudo vamos verificar:
+31
+18
+Recall@5 = 0.9933486
+Recall@10 = 0.978152
+Recall@15 = 0.9498737333333334
